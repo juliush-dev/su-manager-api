@@ -20,13 +20,14 @@ examples:
       telegramnummer: 0-000-000-00
       password: passwordWXCLAP
       role:
-        value: can-delete-su
+        value: can-validate-account
       user-type:
         value: admin
       account-state:
         value: activ
       created-at: 10.10.2021
       updated-at: 10.10.2021
+    jy-id: 0
 description: Represents a jyjn.
 properties:
   id:
@@ -38,6 +39,8 @@ properties:
     $ref: ./Scj-member.yaml
   jy-id:
     type: integer
+    example: 1
+    default: 0
 required:
   - information
   - jy-id
