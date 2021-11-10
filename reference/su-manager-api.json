@@ -27,17 +27,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "../models/Jyjn.yaml"
-                    },
-                    {
-                      "$ref": "../models/Jyjn.yaml"
-                    },
-                    {
-                      "$ref": "../models/Jyjn.yaml"
-                    }
-                  ]
+                  "type": "array",
+                  "items": {
+                    "$ref": "../models/Jyjn.yaml"
+                  }
                 },
                 "examples": {}
               }
