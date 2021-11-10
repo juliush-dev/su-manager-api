@@ -2,6 +2,32 @@ title: Jyjn
 type: object
 x-tags:
   - user
+examples:
+  - id: 1
+    information:
+      id: 1
+      scj-id: 0
+      first-name: roland
+      last-name: raoul
+      address:
+        id: 1
+        country: Germany
+        street: Markstr
+        street-number: '35'
+        postcode: '00000'
+        city: Dortmund
+      email: roland.raoul@gmail.com
+      telegramnummer: 0-000-000-00
+      password: passwordWXCLAP
+      role:
+        value: can-delete-su
+      user-type:
+        value: admin
+      account-state:
+        value: activ
+      created-at: 10.10.2021
+      updated-at: 10.10.2021
+description: Represents a jyjn.
 properties:
   id:
     type:
@@ -10,5 +36,8 @@ properties:
     example: 1
   information:
     $ref: ./Scj-member.yaml
+  jy-id:
+    type: integer
 required:
   - information
+  - jy-id

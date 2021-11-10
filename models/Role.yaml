@@ -12,6 +12,7 @@ properties:
       - can-block-account
       - can-delete-account
       - no-role
+      - can-delete-su
     readOnly: true
 required:
   - value
