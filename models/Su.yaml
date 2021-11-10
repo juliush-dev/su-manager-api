@@ -1,0 +1,7 @@
+title: Su
+type: object
+x-tags:
+  - owned-by-users
+properties:
+  id:
+    type: string

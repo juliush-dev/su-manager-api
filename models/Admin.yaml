@@ -1,0 +1,7 @@
+title: Admin
+type: object
+x-tags:
+  - user
+properties:
+  id:
+    type: string

@@ -1,0 +1,7 @@
+title: Scj-member
+type: object
+x-tags:
+  - user
+properties:
+  id:
+    type: string

@@ -1,0 +1,7 @@
+title: Extension
+type: object
+x-tags:
+  - owned-by-lifepaper
+properties:
+  id:
+    type: string

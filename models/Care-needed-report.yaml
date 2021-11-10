@@ -1,0 +1,5 @@
+title: Care-needed-report
+type: object
+properties:
+  id:
+    type: string

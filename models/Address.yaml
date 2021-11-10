@@ -1,0 +1,7 @@
+title: Address
+type: object
+x-tags:
+  - address-infos
+properties:
+  id:
+    type: string

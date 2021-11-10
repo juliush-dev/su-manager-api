@@ -1,0 +1,5 @@
+title: Aspect
+type: object
+properties:
+  id:
+    type: string

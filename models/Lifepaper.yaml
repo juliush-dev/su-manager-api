@@ -1,0 +1,7 @@
+title: Lifepaper
+type: object
+x-tags:
+  - owned-by-su
+properties:
+  id:
+    type: string

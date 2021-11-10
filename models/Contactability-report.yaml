@@ -1,0 +1,5 @@
+title: Contactability-report
+type: object
+properties:
+  id:
+    type: string

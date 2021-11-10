@@ -1,0 +1,7 @@
+title: Pospone-report
+type: object
+x-tags:
+  - owned-by-report
+properties:
+  id:
+    type: string

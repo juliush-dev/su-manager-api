@@ -1,0 +1,7 @@
+title: Jyjn
+type: object
+x-tags:
+  - user
+properties:
+  id:
+    type: string
