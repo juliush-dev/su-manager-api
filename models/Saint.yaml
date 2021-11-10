@@ -2,30 +2,7 @@ title: Saint
 type: object
 x-tags:
   - owned-by-users
-examples:
-  - information:
-      id: 1
-      scj-id: 0
-      first-name: roland
-      last-name: raoul
-      address:
-        id: 1
-        country: Germany
-        street: Markstr
-        street-number: '35'
-        postcode: '00000'
-        city: Dortmund
-      email: roland.raoul@gmail.com
-      telegramnummer: 0-000-000-00
-      password: passwordWXCLAP
-      role:
-        value: no-role
-      user-type:
-        value: saint
-      account-state:
-        value: activ
-      created-at: 10.10.2021
-      updated-at: 10.10.2021
+examples: []
 description: Represents a saint assigned to a su.
 properties:
   id:

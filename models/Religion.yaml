@@ -2,15 +2,7 @@ title: Religion
 type: object
 x-tags:
   - owned-by-lifepaper
-examples:
-  - id: 1
-    has-faith: true
-    has-faith-in: God
-    time-in-faith: 0
-    go-to-gathering: true
-    gathering-type: Chruch
-    religion-perception: God is evrywhere
-    religion: Christian
+examples: []
 description: Represents the religion of a su.
 properties:
   id:

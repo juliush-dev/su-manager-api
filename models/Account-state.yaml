@@ -2,8 +2,7 @@ title: Account-state
 type: object
 x-tags:
   - enumeration
-examples:
-  - value: activ
+examples: []
 properties:
   value:
     type: string

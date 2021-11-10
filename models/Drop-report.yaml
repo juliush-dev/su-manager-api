@@ -2,8 +2,7 @@ title: Drop-report
 type: object
 x-tags:
   - owned-by-report
-examples:
-  - id: 1
+examples: []
 properties:
   id:
     type:
