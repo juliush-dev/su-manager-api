@@ -13,12 +13,17 @@ properties:
     $ref: ./Lifepaper.yaml
   status:
     $ref: ./Su-status.yaml
-  has-report:
-    type: boolean
-  has-active-report:
-    type: boolean
   assigned-jyjn:
     $ref: ./Jyjn.yaml
+  assigned-reports:
+    type:
+      - array
+      - 'null'
+    uniqueItems: true
+    minItems: 1
+    maxItems: 2
+    items:
+      $ref: ./Report.yaml
   assigned-saint:
     $ref: ./Saint.yaml
   created-at:
@@ -29,19 +34,11 @@ properties:
     type: string
     format: date
     example: '2021-10-10'
-  assigned-reports:
-    type:
-      - array
-      - 'null'
-    items:
-      $ref: ./Report.yaml
 required:
   - lifepaper
   - status
-  - has-report
-  - has-active-report
   - assigned-jyjn
+  - assigned-reports
   - assigned-saint
   - created-at
   - updated-at
-  - assigned-reports

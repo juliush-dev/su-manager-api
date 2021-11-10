@@ -20,12 +20,18 @@ properties:
     type:
       - array
       - 'null'
+    uniqueItems: true
+    minItems: 1
+    maxItems: 2
     items:
       $ref: ./Su.yaml
   assigned-admins:
     type:
       - array
       - 'null'
+    uniqueItems: true
+    minItems: 1
+    maxItems: 2
     items:
       $ref: ./Admin.yaml
 required:
