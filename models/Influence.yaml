@@ -3,5 +3,11 @@ type: object
 x-tags:
   - enumeration
 properties:
-  id:
+  value:
     type: string
+    enum:
+      - low
+      - middle
+      - high
+    example: low
+description: Represents the degree of influence of the mentor on the su.

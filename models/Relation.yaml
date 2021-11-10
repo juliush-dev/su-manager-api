@@ -2,6 +2,13 @@ title: Relation
 type: object
 x-tags:
   - enumeration
+description: Represents a relation type.
 properties:
-  id:
+  value:
     type: string
+    enum:
+      - family
+      - friend
+      - partner
+      - unknown
+    example: family

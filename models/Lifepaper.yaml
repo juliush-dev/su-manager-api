@@ -1,7 +1,97 @@
-title: Lifepaper
+description: Represents the indentity information about a su.
 type: object
-x-tags:
-  - owned-by-su
+x-examples:
+  example-1:
+    id: integer
+    first-name: string
+    last-name: string
+    age: 25
+    address: string
+    first-meeting-media: string
+    work: string
+    school: string
+    nationality: string
+    marital-status: string
+    plan-for-next-twelve-month: string
+    mentor-defined: boolean
+    extension-defined: boolean
+    confidant-defined: boolean
+    religion-defined: boolean
+    created-at: string
+    updated-at: string
+examples: []
+title: Lifepaper
 properties:
   id:
+    type:
+      - integer
+      - 'null'
+    example: 1
+  first-name:
     type: string
+    minLength: 1
+  last-name:
+    type: string
+    minLength: 1
+  age:
+    type: number
+  address:
+    $ref: ./Address.yaml
+  first-meeting-media:
+    $ref: ./Contactmedia.yaml
+  work:
+    type:
+      - string
+      - 'null'
+    minLength: 1
+  school:
+    type:
+      - string
+      - 'null'
+    minLength: 1
+  nationality:
+    type:
+      - string
+      - 'null'
+    minLength: 1
+  marital-status:
+    type:
+      - string
+      - 'null'
+    minLength: 1
+  plan-for-next-twelve-month:
+    type:
+      - string
+      - 'null'
+    minLength: 1
+  mentor:
+    $ref: ./Mentor.yaml
+  extension:
+    $ref: ./Extension.yaml
+  confidant:
+    $ref: ./Confidant.yaml
+  religion:
+    $ref: ./Religion.yaml
+  created-at:
+    type: string
+    minLength: 1
+    format: date
+    example: 10.10.2021
+  updated-at:
+    type: string
+    minLength: 1
+    format: date
+    example: 10.10.2021
+required:
+  - first-name
+  - last-name
+  - age
+  - address
+  - first-meeting-media
+  - work
+  - school
+  - nationality
+  - marital-status
+  - plan-for-next-twelve-month
+  - created-at
+  - updated-at

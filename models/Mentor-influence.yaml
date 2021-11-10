@@ -1,0 +1,25 @@
+description: Represents the influence a mentor has on a su.
+type: object
+x-examples:
+  example-1:
+    id: integer
+    influence-level-on-su: string
+    influenced-aspect-of-su: string
+    influence-description: string
+title: Mentor-influence
+properties:
+  id:
+    type:
+      - integer
+      - 'null'
+  influence-level-on-su:
+    $ref: ./Influence.yaml
+  influenced-aspect-of-su:
+    $ref: ./Aspect.yaml
+  influence-description:
+    type: string
+    minLength: 1
+required:
+  - influence-level-on-su
+  - influenced-aspect-of-su
+  - influence-description

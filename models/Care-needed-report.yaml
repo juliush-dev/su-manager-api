@@ -2,4 +2,21 @@ title: Care-needed-report
 type: object
 properties:
   id:
+    type:
+      - integer
+      - 'null'
+    description: ''
+    example: 1
+  report:
+    $ref: ./Report.yaml
+  care-strategy:
     type: string
+  to-apply-at:
+    type: string
+    format: date
+    example: 10.10.2021
+required:
+  - report
+  - care-strategy
+  - to-apply-at
+description: Represents a report on cared-need.

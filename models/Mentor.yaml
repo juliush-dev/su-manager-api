@@ -1,5 +1,28 @@
-title: Mentor
+description: Represents the mentor of a su.
 type: object
+x-examples:
+  example-1:
+    id: 1
+    name: string
+    relation-with-su: string
+    has-influence-on-su: boolean
+title: Mentor
 properties:
   id:
+    type:
+      - number
+      - 'null'
+    example: 1
+  name:
     type: string
+    minLength: 1
+  relation-with-su:
+    type: string
+    minLength: 1
+  has-influence-on-su:
+    type: string
+    minLength: 1
+required:
+  - name
+  - relation-with-su
+  - has-influence-on-su

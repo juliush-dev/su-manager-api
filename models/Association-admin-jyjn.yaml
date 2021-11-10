@@ -2,6 +2,18 @@ title: Association-admin-jyjn
 type: object
 x-tags:
   - association
+description: Represents the association that that assigns one or more admins to one or more jyjns
+examples: []
 properties:
   id:
-    type: integer
+    type:
+      - integer
+      - 'null'
+    example: 1
+  admin:
+    $ref: ./Admin.yaml
+  jyjn:
+    $ref: ./Jyjn.yaml
+required:
+  - admin
+  - jyjn

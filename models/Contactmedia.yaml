@@ -2,6 +2,16 @@ title: Contactmedia
 type: object
 x-tags:
   - enumeration
+description: Reprents a canal of conversation between a scj member and a su.
 properties:
-  id:
+  value:
     type: string
+    enum:
+      - phone-call
+      - phone-message
+      - digital-meeting
+      - social-meeting
+    example: phone-call
+    readOnly: true
+required:
+  - value

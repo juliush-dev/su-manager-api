@@ -2,6 +2,77 @@ title: Scj-member
 type: object
 x-tags:
   - user
+description: Represents the parent model of all models representing a scj member.
+examples:
+  - id: 1
+    scj-id: 0
+    first-name: roland
+    last-name: raoul
+    address:
+      id: 1
+      country: Germany
+      street: Markstr
+      street-number: '35'
+      postcode: '00000'
+      city: Dortmund
+    email: roland.raoul@gmail.com
+    telegramnummer: 0-000-000-00
+    password: passwordWXCLAP
+    role:
+      value: can-validate-account
+    user-type:
+      value: admin
+    account-state:
+      value: activ
+    created-at: 10.10.2021
+    updated-at: 10.10.2021
 properties:
   id:
+    type:
+      - integer
+      - 'null'
+    example: 1
+  scj-id:
+    type: integer
+  first-name:
     type: string
+  last-name:
+    type: string
+  address:
+    $ref: ./Address.yaml
+  email:
+    type: string
+    format: email
+    example: foo.bar@outlook.de
+  telegramnummer:
+    type: string
+  password:
+    type: string
+    format: password
+  role:
+    $ref: ./Role.yaml
+  user-type:
+    $ref: ./User-type.yaml
+  account-state:
+    $ref: ./Account-state.yaml
+  created-at:
+    type: string
+    format: date
+    example: 10.10.2021
+  updated-at:
+    type: string
+    format: date
+    example: 10.10.2021
+required:
+  - scj-id
+  - first-name
+  - last-name
+  - address
+  - email
+  - telegramnummer
+  - password
+  - role
+  - user-type
+  - account-state
+  - created-at
+  - updated-at

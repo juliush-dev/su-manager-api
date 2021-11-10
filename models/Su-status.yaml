@@ -3,5 +3,17 @@ type: object
 x-tags:
   - enumeration
 properties:
-  id:
+  value:
     type: string
+    enum:
+      - new
+      - contactable
+      - postponed
+      - dropped
+      - ready-for-gp
+      - need-care
+    example: new
+    readOnly: true
+required:
+  - value
+description: Represents the status of a su.

@@ -4,4 +4,17 @@ x-tags:
   - owned-by-lifepaper
 properties:
   id:
-    type: string
+    type:
+      - integer
+      - 'null'
+    example: 1
+  relation:
+    $ref: ./Relation.yaml
+  note:
+    type:
+      - string
+      - 'null'
+required:
+  - relation
+  - note
+description: Represents a confident of a su.

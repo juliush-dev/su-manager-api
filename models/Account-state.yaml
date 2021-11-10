@@ -2,6 +2,17 @@ title: Account-state
 type: object
 x-tags:
   - enumeration
+examples:
+  - value: activ
 properties:
-  id:
+  value:
     type: string
+    enum:
+      - new
+      - blocked
+      - activ
+    example: activ
+    readOnly: true
+required:
+  - value
+description: Represents the state of an account.

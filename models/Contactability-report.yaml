@@ -2,4 +2,21 @@ title: Contactability-report
 type: object
 properties:
   id:
+    type:
+      - integer
+      - 'null'
+    description: ''
+    example: 1
+  report:
+    $ref: ./Report.yaml
+  contact-media:
+    $ref: ./Contactmedia.yaml
+  contacted-at:
     type: string
+    format: date
+    example: 10.10.2021
+required:
+  - report
+  - contact-media
+  - contacted-at
+description: Represents a report on contactability.

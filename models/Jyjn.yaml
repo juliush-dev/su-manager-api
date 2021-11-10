@@ -4,4 +4,11 @@ x-tags:
   - user
 properties:
   id:
-    type: string
+    type:
+      - integer
+      - 'null'
+    example: 1
+  information:
+    $ref: ./Scj-member.yaml
+required:
+  - information

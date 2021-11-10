@@ -3,5 +3,20 @@ type: object
 x-tags:
   - enumeration
 properties:
-  id:
+  value:
     type: string
+    example: mo-dislikes
+    enum:
+      - mo-dislikes
+      - mo-likes
+      - me-questions
+      - me-worries
+      - me-injuries
+      - ci-dangerous-factor
+      - so-interests
+      - so-liked-type-of-person
+      - so-disliked-type-of-person
+      - so-hobbies
+      - so-special-skills
+      - so-language-skills
+description: Represents an aspect more specificaly.

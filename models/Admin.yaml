@@ -2,6 +2,14 @@ title: Admin
 type: object
 x-tags:
   - user
+description: Represents an administrator for users.
 properties:
   id:
-    type: string
+    type:
+      - integer
+      - 'null'
+    example: 1
+  information:
+    $ref: ./Scj-member.yaml
+required:
+  - information

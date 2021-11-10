@@ -2,6 +2,39 @@ title: Su
 type: object
 x-tags:
   - owned-by-users
+description: Represents a su.
 properties:
   id:
+    type:
+      - integer
+      - 'null'
+    example: 1
+  lifepaper:
+    $ref: ./Lifepaper.yaml
+  status:
+    $ref: ./Su-status.yaml
+  has-report:
+    type: boolean
+  has-active-report:
+    type: boolean
+  assigned-jyjn:
+    $ref: ./Jyjn.yaml
+  assigned-saint:
+    $ref: ./Saint.yaml
+  created-at:
     type: string
+    format: date
+    example: 10.10.2021
+  updated-at:
+    type: string
+    format: date
+    example: 10.10.2021
+required:
+  - lifepaper
+  - status
+  - has-report
+  - has-active-report
+  - assigned-jyjn
+  - assigned-saint
+  - created-at
+  - updated-at

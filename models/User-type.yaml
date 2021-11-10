@@ -3,5 +3,16 @@ type: object
 x-tags:
   - enumeration
 properties:
-  id:
+  value:
     type: string
+    enum:
+      - admin
+      - jyjn
+      - saint
+    example: admin
+    readOnly: true
+required:
+  - value
+description: Represents the type of a newly created user.
+examples:
+  - value: admin

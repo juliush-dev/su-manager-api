@@ -2,6 +2,16 @@ title: Drop-report
 type: object
 x-tags:
   - owned-by-report
+examples:
+  - id: 1
 properties:
   id:
-    type: string
+    type:
+      - integer
+      - 'null'
+    description: ''
+    example: 1
+  report:
+    $ref: ./Report.yaml
+required:
+  - report

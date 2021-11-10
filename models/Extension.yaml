@@ -4,4 +4,17 @@ x-tags:
   - owned-by-lifepaper
 properties:
   id:
+    type:
+      - integer
+      - 'null'
+    example: 1
+  described-aspect:
+    $ref: ./Aspect.yaml
+  aspect-element:
+    $ref: ./Aspectitem.yaml
+  description:
     type: string
+required:
+  - described-aspect
+  - aspect-element
+  - description

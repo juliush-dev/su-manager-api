@@ -1,5 +1,12 @@
 title: Aspect
 type: object
 properties:
-  id:
+  value:
     type: string
+    enum:
+      - moral
+      - mental
+      - social
+      - circumstance
+    example: mental
+description: Represents an asptect of a su influenced by a mentor.

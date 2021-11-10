@@ -2,6 +2,34 @@ title: Address
 type: object
 x-tags:
   - address-infos
+examples:
+  - id: 1
+    country: Germany
+    street: Markstr
+    street-number: '35'
+    postcode: '00000'
+    city: Dortmund
+description: Represents the address of a scj member.
+x-internal: false
 properties:
   id:
+    type:
+      - integer
+      - 'null'
+    example: 1
+  country:
     type: string
+  street:
+    type: string
+  street-number:
+    type: string
+  postcode:
+    type: string
+  city:
+    type: string
+required:
+  - country
+  - street
+  - street-number
+  - postcode
+  - city
