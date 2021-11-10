@@ -1,0 +1,7 @@
+title: User-type
+type: object
+x-tags:
+  - enumeration
+properties:
+  id:
+    type: string
