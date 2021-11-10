@@ -67,7 +67,11 @@ properties:
   mentor:
     $ref: ./Mentor.yaml
   extension:
-    $ref: ./Extension.yaml
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: ./Extension.yaml
   confidant:
     $ref: ./Confidant.yaml
   religion:

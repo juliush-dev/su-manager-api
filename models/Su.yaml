@@ -29,6 +29,12 @@ properties:
     type: string
     format: date
     example: '2021-10-10'
+  assigned-reports:
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: ./Report.yaml
 required:
   - lifepaper
   - status
@@ -38,3 +44,4 @@ required:
   - assigned-saint
   - created-at
   - updated-at
+  - assigned-reports

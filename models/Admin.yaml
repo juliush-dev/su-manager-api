@@ -11,5 +11,11 @@ properties:
     example: 1
   information:
     $ref: ./Scj-member.yaml
+  assigned-jyjns:
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: ./Jyjn.yaml
 required:
   - information

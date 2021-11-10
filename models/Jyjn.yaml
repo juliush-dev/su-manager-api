@@ -16,6 +16,18 @@ properties:
     type: integer
     example: 1
     default: 0
+  assigned-sus:
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: ./Su.yaml
+  assigned-admins:
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: ./Admin.yaml
 required:
   - information
   - jy-id
