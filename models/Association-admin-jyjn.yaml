@@ -1,0 +1,7 @@
+title: Association-admin-jyjn
+type: object
+x-tags:
+  - association
+properties:
+  id:
+    type: integer
