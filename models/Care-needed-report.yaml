@@ -1,5 +1,6 @@
 title: Care-needed-report
 type: object
+description: Represents a report on cared-need.
 properties:
   id:
     type:
@@ -14,9 +15,8 @@ properties:
   to-apply-at:
     type: string
     format: date
-    example: 10.10.2021
+    example: '2021-10-10'
 required:
   - report
   - care-strategy
   - to-apply-at
-description: Represents a report on cared-need.

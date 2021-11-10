@@ -1,5 +1,6 @@
 title: Contactability-report
 type: object
+description: Represents a report on contactability.
 properties:
   id:
     type:
@@ -14,9 +15,8 @@ properties:
   contacted-at:
     type: string
     format: date
-    example: 10.10.2021
+    example: '2021-10-10'
 required:
   - report
   - contact-media
   - contacted-at
-description: Represents a report on contactability.

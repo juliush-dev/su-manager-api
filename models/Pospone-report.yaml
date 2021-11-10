@@ -13,7 +13,7 @@ properties:
   postpone-for:
     type: string
     format: date
-    pattern: 10.10.2021
+    example: '2021-10-10'
   report:
     $ref: ./Report.yaml
 required:

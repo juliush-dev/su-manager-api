@@ -24,11 +24,11 @@ properties:
   created-at:
     type: string
     format: date
-    example: 10.10.2021
+    example: '2021-10-10'
   updated-at:
     type: string
     format: date
-    example: 10.10.2021
+    example: '2021-10-10'
 required:
   - lifepaper
   - status

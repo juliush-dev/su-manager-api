@@ -30,6 +30,12 @@
                   "allOf": [
                     {
                       "$ref": "../models/Jyjn.yaml"
+                    },
+                    {
+                      "$ref": "../models/Jyjn.yaml"
+                    },
+                    {
+                      "$ref": "../models/Jyjn.yaml"
                     }
                   ]
                 },
