@@ -21,15 +21,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
-          },
-          "name": "admin_id",
-          "in": "path",
-          "required": true
-        },
-        {
-          "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "admin_id",
           "in": "path",
@@ -424,7 +416,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "jyjn_id",
           "in": "path",
@@ -629,7 +621,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "jyjn_id",
           "in": "path",
@@ -740,7 +732,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "jyjn_id",
           "in": "path",
@@ -975,7 +967,8 @@
                     "jyjn_id": 1,
                     "sus": [
                       1,
-                      2
+                      2,
+                      3
                     ]
                   }
                 }
@@ -991,7 +984,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "su_id",
           "in": "path",
@@ -1095,7 +1088,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "su_id",
           "in": "path",
@@ -1200,7 +1193,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "report_id",
           "in": "path",
@@ -1297,7 +1290,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "su_id",
           "in": "path",
@@ -1426,7 +1419,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "lifepaper_id",
           "in": "path",
@@ -1488,7 +1481,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "lifepaper_id",
           "in": "path",
@@ -1611,7 +1604,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "mentor_id",
           "in": "path",
@@ -1714,7 +1707,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "lifepaper_id",
           "in": "path",
@@ -1853,7 +1846,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "religion_id",
           "in": "path",
@@ -1957,7 +1950,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "lifepaper_id",
           "in": "path",
@@ -2113,7 +2106,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "extension_id",
           "in": "path",
@@ -2226,7 +2219,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "lifepaper_id",
           "in": "path",
@@ -2347,7 +2340,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "confidant_id",
           "in": "path",
@@ -2737,7 +2730,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "admin_id",
           "in": "path",
@@ -3018,7 +3011,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "admin_id",
           "in": "path",
@@ -3162,7 +3155,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string"
+            "type": "integer"
           },
           "name": "authority_id",
           "in": "path",
