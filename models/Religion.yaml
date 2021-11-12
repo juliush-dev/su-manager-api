@@ -2,7 +2,31 @@ title: Religion
 type: object
 x-tags:
   - owned-by-lifepaper
-examples: []
+examples:
+  - id: 1
+    has-faith: true
+    has-faith-in: God
+    time-in-faith: 5
+    go-to-gathering: true
+    gathering-type: church
+    religion-perception: God loves all humans
+    religion: christian
+  - id: 1
+    has-faith: true
+    has-faith-in: Allah
+    time-in-faith: 15
+    go-to-gathering: true
+    gathering-type: mosque
+    religion-perception: Allah is God
+    religion: Islam
+  - id: 1
+    has-faith: false
+    has-faith-in: null
+    time-in-faith: null
+    go-to-gathering: null
+    gathering-type: null
+    religion-perception: there is no God
+    religion: null
 description: Represents the religion of a su.
 properties:
   id:

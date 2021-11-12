@@ -20,3 +20,6 @@ properties:
       - so-special-skills
       - so-language-skills
 description: Represents an aspect more specificaly.
+examples:
+  - value: mo-dislikes
+  - value: mo-likes

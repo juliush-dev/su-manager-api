@@ -2,7 +2,39 @@ title: Jyjn
 type: object
 x-tags:
   - user
-examples: []
+examples:
+  - id: 1
+    jy-id: 1
+    information:
+      id: 1
+      scj-id: '0000000000000'
+      first-name: foo
+      last-name: bar
+      email: foo.bar@outlook.de
+      telegramnummer: string
+      password: pa$$word
+      user-type:
+        value: jyjn
+      account-state:
+        value: activ
+      created-at: '2021-10-10'
+      updated-at: '2021-10-10'
+  - id: 1
+    jy-id: 1
+    information:
+      id: 1
+      scj-id: '0000000000000'
+      first-name: foo
+      last-name: bar
+      email: foo.bar@outlook.de
+      telegramnummer: string
+      password: pa$$word
+      user-type:
+        value: jyjn
+      account-state:
+        value: activ
+      created-at: '2021-10-10'
+      updated-at: '2021-10-10'
 description: Represents a jyjn.
 properties:
   id:
@@ -10,12 +42,12 @@ properties:
       - integer
       - 'null'
     example: 1
-  information:
-    $ref: ./Scj-member.yaml
   jy-id:
     type: integer
     example: 1
     default: 0
+  information:
+    $ref: ./Scj-member.yaml
 required:
-  - information
   - jy-id
+  - information

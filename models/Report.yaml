@@ -1,6 +1,11 @@
 title: Report
 type: object
 description: Represents the parent model of all types of reports.
+examples:
+  - id: 1
+    report-type: contactability
+    reason: null
+    reported-at: '2021-10-10 10:10'
 properties:
   id:
     type:
@@ -16,7 +21,9 @@ properties:
       - dropped
     example: contactability
   reason:
-    type: string
+    type:
+      - string
+      - 'null'
   reported-at:
     type: string
     format: date-time

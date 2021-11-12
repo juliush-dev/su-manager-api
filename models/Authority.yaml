@@ -8,6 +8,11 @@ examples:
     authorized_to:
       delete-su: true
       delete-admin: false
+  - id: 1
+    type_assign_to: admin
+    authorized_to:
+      delete-su: true
+      delete-admin: true
 properties:
   id:
     type: integer
@@ -18,3 +23,4 @@ properties:
       - jyjn
   authorized_to:
     type: object
+description: Represents a list of authorithies allowed or not

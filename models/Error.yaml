@@ -1,0 +1,40 @@
+title: Error
+type: object
+x-tags:
+  - response
+properties:
+  status:
+    type: integer
+  type:
+    type: string
+  message:
+    type: string
+  detailed_information:
+    type:
+      - string
+      - 'null'
+required:
+  - type
+  - message
+description: Represents the response of a failed request.
+examples:
+  - status: 402
+    type: Forbidden
+    message: You are not authorized to access the requested resource
+    detailed_information: ''
+  - status: 403
+    type: Unauthorize
+    message: You are not authenticate in our system
+    detailed_information: Please authenticate and try again
+  - status: 404
+    type: Not found
+    message: The resource you reference on doesn't exist
+    detailed_information: Please check the parameters of your request again
+  - status: 400
+    type: Bad request
+    message: Malformed request
+    detailed_information: Please check our API documentation and try again
+  - status: 500
+    type: Internal server error
+    message: An error occured in the server during the operation
+    detailed_information: Please contact our IT-support service

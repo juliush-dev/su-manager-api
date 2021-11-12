@@ -39,16 +39,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "../models/Response.yaml"
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    }
+                  }
                 },
                 "examples": {
-                  "example-1": {
+                  "200": {
                     "value": {
-                      "type": "error",
-                      "message": "Forbidden",
-                      "detailed-message": {
-                        "reason": "You are not authorized to acces this resource."
-                      }
+                      "id": 1
                     }
                   }
                 }
@@ -62,28 +63,12 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "created_entity": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "$ref": "../models/Response.yaml"
+                    "id": {
+                      "type": "integer"
                     }
                   }
                 },
-                "examples": {
-                  "creation success": {
-                    "value": {
-                      "created_entity": "admin",
-                      "message": {
-                        "type": "success",
-                        "message": "admin created",
-                        "detailed-message": {
-                          "id": 1
-                        }
-                      }
-                    }
-                  }
-                }
+                "examples": {}
               }
             }
           },
@@ -131,6 +116,15 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "operationId": "put-admins-admin_id",
@@ -1081,6 +1075,358 @@
             }
           },
           "description": ""
+        }
+      }
+    },
+    "/sus/{su_id}/saints": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "su_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "Delete the saint assign to this su",
+        "tags": [
+          "su",
+          ""
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Delete.yaml"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-sus-su_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "su_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "su_id"
+                ]
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "su_id": {
+                    "type": [
+                      "string",
+                      "integer"
+                    ]
+                  }
+                },
+                "required": [
+                  "su_id"
+                ]
+              }
+            }
+          },
+          "description": ""
+        }
+      },
+      "get": {
+        "summary": "Get the saint assign to this su",
+        "operationId": "get-sus-su_id-saints",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Saint.yaml"
+                },
+                "examples": {
+                  "saint": {
+                    "value": {
+                      "id": 1,
+                      "information": {
+                        "id": 1,
+                        "scj-id": "0000000000000",
+                        "first-name": "foo",
+                        "last-name": "bar",
+                        "email": "foo.bar@outlook.de",
+                        "telegramnummer": "string",
+                        "password": "pa$$word",
+                        "user-type": {
+                          "value": "saint"
+                        },
+                        "account-state": {
+                          "value": "activ"
+                        },
+                        "created-at": "2021-10-10",
+                        "updated-at": "2021-10-10"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "su_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "su_id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/saints/{saint_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "integer"
+          },
+          "name": "saint_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "Delete this saint profile from the system",
+        "tags": [
+          "su",
+          ""
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Delete.yaml"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-sus-su_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "saint_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "saint_id"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update this saint profile information",
+        "operationId": "put-saints-saint_id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Update.yaml"
+                },
+                "examples": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../models/Saint.yaml"
+              },
+              "examples": {
+                "saint": {
+                  "value": {
+                    "id": 1,
+                    "information": {
+                      "id": 1,
+                      "scj-id": "0000000000000",
+                      "first-name": "foo",
+                      "last-name": "bar",
+                      "email": "foo.bar@outlook.de",
+                      "telegramnummer": "string",
+                      "password": "pa$$word",
+                      "user-type": {
+                        "value": "saint"
+                      },
+                      "account-state": {
+                        "value": "activ"
+                      },
+                      "created-at": "2021-10-10",
+                      "updated-at": "2021-10-10"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },

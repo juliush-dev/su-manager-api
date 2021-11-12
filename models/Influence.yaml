@@ -11,3 +11,6 @@ properties:
       - high
     example: low
 description: Represents the degree of influence of the mentor on the su.
+examples:
+  - value: low
+  - value: high

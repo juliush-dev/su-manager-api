@@ -1,0 +1,66 @@
+description: Represents a response to a successfull UPDATE request
+type: object
+properties:
+  id:
+    type: number
+  updated:
+    type: string
+    minLength: 1
+  message:
+    type: string
+    minLength: 1
+  detailed_information:
+    type: string
+required:
+  - id
+  - updated
+  - message
+  - detailed_information
+x-examples:
+  example-1:
+    id: 0
+    updated: admin
+    message: Update completed
+    detailed_information: ''
+examples:
+  - id: 0
+    updated: admin
+    message: Update completed
+    detailed_information: ''
+  - id: 0
+    updated: jyjn
+    message: Update completed
+    detailed_information: ''
+  - id: 0
+    updated: su
+    message: Update completed
+    detailed_information: ''
+  - id: 0
+    updated: saint
+    message: Update completed
+    detailed_information: ''
+  - id: 0
+    updated: lifepaper
+    message: Update completed
+    detailed_information: ''
+  - id: 0
+    updated: mentor
+    message: Update completed
+    detailed_information: ''
+  - id: 0
+    updated: extension
+    message: Update completed
+    detailed_information: ''
+  - id: 0
+    updated: confidant
+    message: Update completed
+    detailed_information: ''
+  - id: 0
+    updated: report
+    message: Update completed
+    detailed_information: ''
+  - id: 0
+    updated: religion
+    message: Update completed
+    detailed_information: ''
+title: Update

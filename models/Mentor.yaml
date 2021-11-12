@@ -7,6 +7,17 @@ x-examples:
     relation-with-su: string
     has-influence-on-su: boolean
 title: Mentor
+examples:
+  - id: 1
+    name: foo
+    relation-with-su:
+      value: family
+    has-influence-on-su: true
+  - id: 1
+    name: bar
+    relation-with-su:
+      value: husband
+    has-influence-on-su: true
 properties:
   id:
     type:
@@ -17,12 +28,9 @@ properties:
     type: string
     minLength: 1
   relation-with-su:
-    type: string
-    minLength: 1
+    $ref: ./Relation.yaml
   has-influence-on-su:
-    type: string
-    minLength: 1
+    type: boolean
 required:
   - name
   - relation-with-su
-  - has-influence-on-su

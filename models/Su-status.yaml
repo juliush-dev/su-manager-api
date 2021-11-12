@@ -17,3 +17,6 @@ properties:
 required:
   - value
 description: Represents the status of a su.
+examples:
+  - value: new
+  - value: ready-for-gp

@@ -23,3 +23,14 @@ required:
   - status
   - created-at
   - updated-at
+examples:
+  - id: 1
+    status:
+      value: new
+    created-at: '2021-10-10'
+    updated-at: '2021-10-10'
+  - id: 1
+    status:
+      value: ready-for-gp
+    created-at: '2021-10-10'
+    updated-at: '2021-10-10'

@@ -19,7 +19,20 @@ x-examples:
     religion-defined: boolean
     created-at: string
     updated-at: string
-examples: []
+examples:
+  - id: 1
+    first-name: foo
+    last-name: bar
+    age: 0
+    first-meeting-media:
+      value: phone-call
+    work: at google as software dev
+    school: haward university
+    nationality: french
+    marital-status: single
+    plan-for-next-twelve-month: CIO of the company he works at
+    created-at: '2021-10-10'
+    updated-at: '2021-10-10'
 title: Lifepaper
 properties:
   id:

@@ -12,3 +12,7 @@ properties:
       - partner
       - unknown
     example: family
+examples:
+  - value: family
+  - value: friend
+  - value: maried

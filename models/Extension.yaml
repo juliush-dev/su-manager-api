@@ -18,3 +18,17 @@ required:
   - described-aspect
   - aspect-element
   - description
+description: Represents additional information about the su.
+examples:
+  - id: 1
+    described-aspect:
+      value: moral
+    aspect-element:
+      value: mo-dislikes
+    description: dont like social life
+  - id: 1
+    described-aspect:
+      value: moral
+    aspect-element:
+      value: mo-dislikes
+    description: dont like religious people

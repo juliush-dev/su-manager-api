@@ -3,7 +3,20 @@ type: object
 x-tags:
   - user
 description: Represents the parent model of all models representing a scj member.
-examples: []
+examples:
+  - id: 1
+    scj-id: '0000000000000'
+    first-name: string
+    last-name: string
+    email: foo.bar@outlook.de
+    telegramnummer: string
+    password: pa$$word
+    user-type:
+      value: admin
+    account-state:
+      value: activ
+    created-at: '2021-10-10'
+    updated-at: '2021-10-10'
 properties:
   id:
     type:
@@ -11,7 +24,10 @@ properties:
       - 'null'
     example: 1
   scj-id:
-    type: integer
+    type: string
+    minLength: 13
+    maxLength: 13
+    example: '0000000000000'
   first-name:
     type: string
   last-name:

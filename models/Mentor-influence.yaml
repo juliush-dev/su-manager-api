@@ -23,3 +23,10 @@ required:
   - influence-level-on-su
   - influenced-aspect-of-su
   - influence-description
+examples:
+  - id: 0
+    influence-level-on-su:
+      value: low
+    influenced-aspect-of-su:
+      value: mental
+    influence-description: just help him to be good at finances

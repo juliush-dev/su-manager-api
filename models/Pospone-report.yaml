@@ -19,3 +19,11 @@ properties:
 required:
   - postpone-for
   - report
+examples:
+  - id: 1
+    postpone-for: '2021-10-10'
+    report:
+      id: 1
+      report-type: postpone
+      reason: difficulties in school
+      reported-at: '2021-10-10 10:10'

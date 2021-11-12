@@ -10,3 +10,7 @@ properties:
       - circumstance
     example: mental
 description: Represents an asptect of a su influenced by a mentor.
+examples:
+  - value: mental
+  - value: moral
+  - value: circumstance

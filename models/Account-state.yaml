@@ -2,7 +2,10 @@ title: Account-state
 type: object
 x-tags:
   - enumeration
-examples: []
+examples:
+  - value: activ
+  - value: new
+  - value: blocked
 properties:
   value:
     type: string

@@ -2,7 +2,22 @@ title: Saint
 type: object
 x-tags:
   - owned-by-users
-examples: []
+examples:
+  - id: 1
+    information:
+      id: 1
+      scj-id: '0000000000000'
+      first-name: foo
+      last-name: bar
+      email: foo.bar@outlook.de
+      telegramnummer: string
+      password: pa$$word
+      user-type:
+        value: saint
+      account-state:
+        value: activ
+      created-at: '2021-10-10'
+      updated-at: '2021-10-10'
 description: Represents a saint assigned to a su.
 properties:
   id:

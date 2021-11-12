@@ -2,7 +2,19 @@ title: Drop-report
 type: object
 x-tags:
   - owned-by-report
-examples: []
+examples:
+  - id: 1
+    report:
+      id: 1
+      report-type: drop
+      reason: not contactable since 3 months
+      reported-at: '2021-10-10 10:10'
+  - id: 1
+    report:
+      id: 1
+      report-type: drop
+      reason: bad circumstances
+      reported-at: '2021-10-10 10:10'
 properties:
   id:
     type:
@@ -14,3 +26,4 @@ properties:
     $ref: ./Report.yaml
 required:
   - report
+description: Represents a drop report.

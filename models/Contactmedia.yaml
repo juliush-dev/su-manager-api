@@ -15,3 +15,7 @@ properties:
     readOnly: true
 required:
   - value
+examples:
+  - value: phone-call
+  - value: phone-message
+  - value: digital-meeting

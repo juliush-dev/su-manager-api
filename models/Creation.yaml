@@ -1,0 +1,62 @@
+description: Represents the response of a successfull POST request.
+type: object
+properties:
+  id:
+    type: number
+  created:
+    type: string
+    minLength: 1
+  message:
+    type: string
+    minLength: 1
+  detailed_information:
+    type: string
+required:
+  - id
+  - created
+  - message
+  - detailed_information
+x-examples:
+  example-1:
+    id: 0
+    created: jyjn
+    message: Creation completed
+    detailed_information: ''
+examples:
+  - id: 0
+    created: admin
+    message: Creation completed
+    detailed_information: ''
+  - id: 0
+    created: jyjn
+    message: Creation completed
+    detailed_information: ''
+  - id: 0
+    created: su
+    message: Creation completed
+    detailed_information: ''
+  - id: 0
+    created: saint
+    message: Creation completed
+    detailed_information: ''
+  - id: 0
+    created: lifepaper
+    message: Creation completed
+    detailed_information: ''
+  - id: 0
+    created: extension
+    message: Creation completed
+    detailed_information: ''
+  - id: 0
+    created: mentor
+    message: Creation completed
+    detailed_information: ''
+  - id: 0
+    created: religion
+    message: Creation completed
+    detailed_information: ''
+  - id: 0
+    created: report
+    message: Creation completed
+    detailed_information: ''
+title: Creation

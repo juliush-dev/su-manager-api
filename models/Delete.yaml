@@ -1,0 +1,51 @@
+title: Delete
+type: object
+x-tags:
+  - reponse
+examples:
+  - id: 0
+    deleted: jyjn
+    message: Delete completed
+    detailed_information: ''
+  - id: 0
+    deleted: admin
+    message: Delete completed
+    detailed_information: ''
+  - id: 0
+    deleted: su
+    message: Delete completed
+    detailed_information: ''
+  - id: 0
+    deleted: lifepaper
+    message: Delete completed
+    detailed_information: ''
+  - id: 0
+    deleted: mentor
+    message: Delete completed
+    detailed_information: ''
+  - id: 0
+    deleted: extension
+    message: Delete completed
+    detailed_information: ''
+  - id: 0
+    deleted: confidant
+    message: Delete completed
+    detailed_information: ''
+  - id: 0
+    deleted: religion
+    message: Delete completed
+    detailed_information: ''
+  - id: 0
+    deleted: report
+    message: Delete completed
+    detailed_information: ''
+properties:
+  id:
+    type: integer
+  deleted:
+    type: string
+  message:
+    type: string
+  detailed_information:
+    type: string
+description: Represents the response of a successfull DELETE request.

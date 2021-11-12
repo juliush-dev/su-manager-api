@@ -2,12 +2,21 @@ title: Confidant
 type: object
 x-tags:
   - owned-by-lifepaper
+description: Represents a confident of a su.
+examples:
+  - id: 1
+    name: foo
+    relation:
+      value: family
+    note: tell him everything
 properties:
   id:
     type:
       - integer
       - 'null'
     example: 1
+  name:
+    type: string
   relation:
     $ref: ./Relation.yaml
   note:
@@ -15,6 +24,6 @@ properties:
       - string
       - 'null'
 required:
+  - name
   - relation
   - note
-description: Represents a confident of a su.
