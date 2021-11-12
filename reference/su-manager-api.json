@@ -1932,6 +1932,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "../models/Delete.yaml"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": 0,
+                      "deleted": "jyjn",
+                      "message": "Delete completed",
+                      "detailed_information": ""
+                    }
+                  }
                 }
               }
             }
@@ -2021,7 +2031,8 @@
             }
           },
           "description": ""
-        }
+        },
+        "parameters": []
       },
       "get": {
         "summary": "Get the saint assign to this su",
