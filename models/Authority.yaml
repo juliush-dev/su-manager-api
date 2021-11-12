@@ -2,9 +2,15 @@ title: Authority
 type: object
 x-tags:
   - scj-member
+examples:
+  - id: 1
+    type_assign_to: admin
+    authorized_to:
+      delete-su: true
+      delete-admin: false
 properties:
   id:
-    type: string
+    type: integer
   type_assign_to:
     type: string
     enum:
@@ -12,9 +18,3 @@ properties:
       - jyjn
   authorized_to:
     type: object
-examples:
-  - id: string
-    type_assign_to: admin
-    authorized_to:
-      delete-su: true
-      delete-admin: false

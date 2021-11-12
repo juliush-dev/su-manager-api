@@ -42,6 +42,27 @@
           "admin"
         ],
         "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Response.yaml"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "type": "error",
+                      "message": "Forbidden",
+                      "detailed-message": {
+                        "reason": "You are not authorized to acces this resource."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "201": {
             "description": "Created",
             "content": {
@@ -95,6 +116,9 @@
               }
             }
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized",
             "content": {
@@ -115,27 +139,6 @@
                 }
               }
             }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "../models/Response.yaml"
-                },
-                "examples": {
-                  "example-1": {
-                    "value": {
-                      "type": "error",
-                      "message": "Forbidden",
-                      "detailed-message": {
-                        "reason": "You are not authorized to acces this resource."
-                      }
-                    }
-                  }
-                }
-              }
-            }
           }
         },
         "operationId": "put-admins-admin_id",
@@ -143,37 +146,32 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "../models/Scj-member.yaml"
+                "$ref": "../models/Admin.yaml"
               },
               "examples": {
-                "raoul-fosso": {
+                "admin": {
                   "value": {
                     "id": 1,
-                    "scj-id": 0,
-                    "first-name": "raoul",
-                    "last-name": "fosso",
-                    "address": {
+                    "information": {
                       "id": 1,
-                      "country": "Germany",
-                      "street": "Markstr",
-                      "street-number": "35",
-                      "postcode": "00000",
-                      "city": "Dortmund"
-                    },
-                    "email": "foo.bar@outlook.de",
-                    "telegramnummer": "string",
-                    "password": "pa$$word",
-                    "role": {
-                      "value": "can-validate-account"
-                    },
-                    "user-type": {
-                      "value": "admin"
-                    },
-                    "account-state": {
-                      "value": "new"
-                    },
-                    "created-at": "2021-10-10",
-                    "updated-at": "2021-10-10"
+                      "scj-id": 0,
+                      "first-name": "raoul",
+                      "last-name": "fosso",
+                      "email": "foo.bar@outlook.de",
+                      "telegramnummer": "0-000-000-00",
+                      "password": "pa$$word",
+                      "role": {
+                        "value": "can-validate-account"
+                      },
+                      "user-type": {
+                        "value": "admin"
+                      },
+                      "account-state": {
+                        "value": "activ"
+                      },
+                      "created-at": "2021-10-10",
+                      "updated-at": "2021-10-10"
+                    }
                   }
                 }
               }
@@ -317,9 +315,38 @@
             "application/json": {
               "schema": {
                 "$ref": "../models/Jyjn.yaml"
+              },
+              "examples": {
+                "jyjn": {
+                  "value": {
+                    "id": 1,
+                    "information": {
+                      "id": 1,
+                      "scj-id": 4,
+                      "first-name": "raoul",
+                      "last-name": "fosso",
+                      "email": "foo.bar@outlook.de",
+                      "telegramnummer": "string",
+                      "password": "pa$$word",
+                      "role": {
+                        "value": "can-validate-account"
+                      },
+                      "user-type": {
+                        "value": "jyjn"
+                      },
+                      "account-state": {
+                        "value": "new"
+                      },
+                      "created-at": "2021-10-10",
+                      "updated-at": "2021-10-10"
+                    },
+                    "jy-id": 0
+                  }
+                }
               }
             }
-          }
+          },
+          "description": ""
         }
       },
       "get": {
@@ -411,7 +438,39 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Jyjn.yaml"
+                },
+                "examples": {
+                  "jyjn": {
+                    "value": {
+                      "id": 1,
+                      "information": {
+                        "id": 1,
+                        "scj-id": 4,
+                        "first-name": "foo",
+                        "last-name": "bar",
+                        "email": "foo.bar@outlook.de",
+                        "telegramnummer": "string",
+                        "password": "pa$$word",
+                        "user-type": {
+                          "value": "jyjn"
+                        },
+                        "account-state": {
+                          "value": "activ"
+                        },
+                        "created-at": "2021-10-10",
+                        "updated-at": "2021-10-10"
+                      },
+                      "jy-id": 1
+                    }
+                  }
+                }
+              }
+            }
           },
           "201": {
             "description": "Created"
@@ -535,6 +594,31 @@
             "application/json": {
               "schema": {
                 "$ref": "../models/Jyjn.yaml"
+              },
+              "examples": {
+                "example-1": {
+                  "value": {
+                    "id": 1,
+                    "information": {
+                      "id": 1,
+                      "scj-id": 0,
+                      "first-name": "foo",
+                      "last-name": "bar",
+                      "email": "foo.bar@outlook.de",
+                      "telegramnummer": "string",
+                      "password": "pa$$word",
+                      "user-type": {
+                        "value": "admin"
+                      },
+                      "account-state": {
+                        "value": "activ"
+                      },
+                      "created-at": "2021-10-10",
+                      "updated-at": "2021-10-10"
+                    },
+                    "jy-id": 1
+                  }
+                }
               }
             }
           }
@@ -565,12 +649,40 @@
                 "schema": {
                   "$ref": "../models/Authority.yaml"
                 },
-                "examples": {}
+                "examples": {
+                  "jyjn-authorities": {
+                    "value": {
+                      "id": 1,
+                      "type_assign_to": "jyjn",
+                      "authorized_to": {
+                        "delete-su": true,
+                        "delete-admin": false
+                      }
+                    }
+                  }
+                }
               }
             }
           }
         },
-        "operationId": "get-jyjns-jyjn_id-assignments-authorities"
+        "operationId": "get-jyjns-jyjn_id-assignments-authorities",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jyjn_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "jyjn_id"
+                ]
+              }
+            }
+          }
+        }
       },
       "post": {
         "summary": "Assign authorities to this jyjn",
@@ -592,6 +704,12 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "operationId": "post-jyjns-jyjn_id-assignments-authorities",
@@ -600,80 +718,18 @@
             "application/json": {
               "schema": {
                 "$ref": "../models/Authority.yaml"
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete all authorities of this jyjn",
-        "tags": [
-          "jyjn"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "operationId": "delete-jyjns-jyjn_id-assignments-authorities",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "jyjn_id": {
-                    "type": "integer"
+              },
+              "examples": {
+                "jyjn-authorities": {
+                  "value": {
+                    "id": 1,
+                    "type_assign_to": "jyjn",
+                    "authorized_to": {
+                      "delete-su": true,
+                      "delete-admin": false
+                    }
                   }
-                },
-                "required": [
-                  "jyjn_id"
-                ]
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Remove some authorities of this jyjn",
-        "tags": [
-          "jyjn"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "operationId": "put-jyjns-jyjn_id-assignments-authorities",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "../models/Authority.yaml"
+                }
               }
             }
           }
@@ -692,7 +748,7 @@
         }
       ],
       "post": {
-        "summary": "Assign or unassign a list of sus to this jyjn",
+        "summary": "Assign a list of sus to this jyjn",
         "tags": [],
         "responses": {
           "200": {
@@ -794,6 +850,20 @@
                   "items": {
                     "$ref": "../models/Su.yaml"
                   }
+                },
+                "examples": {
+                  "su": {
+                    "value": [
+                      {
+                        "id": 1,
+                        "status": {
+                          "value": "new"
+                        },
+                        "created-at": "2021-10-10",
+                        "updated-at": "2021-10-10"
+                      }
+                    ]
+                  }
                 }
               }
             }
@@ -832,6 +902,52 @@
             }
           }
         }
+      },
+      "put": {
+        "summary": "Assign or unassign a list of sus to this jyjn",
+        "operationId": "put-jyjns-jyjn_id-sus",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "jyjn_id": {
+                    "type": "integer"
+                  },
+                  "sus": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "jyjn_id",
+                  "sus"
+                ]
+              }
+            }
+          }
+        },
+        "parameters": []
       }
     },
     "/sus/{su_id}": {
@@ -919,9 +1035,22 @@
             "application/json": {
               "schema": {
                 "$ref": "../models/Su.yaml"
+              },
+              "examples": {
+                "su": {
+                  "value": {
+                    "id": 1,
+                    "status": {
+                      "value": "new"
+                    },
+                    "created-at": "2021-10-10",
+                    "updated-at": "2021-10-10"
+                  }
+                }
               }
             }
-          }
+          },
+          "description": ""
         }
       }
     },
@@ -941,8 +1070,93 @@
         "tags": [
           "su"
         ],
-        "responses": {},
-        "operationId": "get-sus-su_id-reports"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "../models/Report.yaml"
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "get-sus-su_id-reports",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "su_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "su_id"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a report on this su",
+        "operationId": "post-sus-su_id-reports",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "su_id": {
+                    "type": "integer"
+                  },
+                  "report": {
+                    "$ref": "../models/Report.yaml"
+                  }
+                },
+                "required": [
+                  "su_id",
+                  "report"
+                ]
+              }
+            }
+          }
+        }
       }
     },
     "/reports/{report_id}": {
@@ -962,8 +1176,42 @@
           "",
           "report"
         ],
-        "responses": {},
-        "operationId": "put-reports-report_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "put-reports-report_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "report": {
+                    "$ref": "../models/Report.yaml"
+                  }
+                },
+                "required": [
+                  "report"
+                ]
+              },
+              "examples": {}
+            }
+          }
+        }
       },
       "delete": {
         "summary": "Delete this report",
@@ -971,8 +1219,41 @@
           "",
           "report"
         ],
-        "responses": {},
-        "operationId": "delete-reports-report_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "delete-reports-report_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "report_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "report_id"
+                ]
+              }
+            }
+          }
+        }
       }
     },
     "/sus/{su_id}/lifepapers": {
@@ -991,8 +1272,179 @@
         "tags": [
           "lifepaper"
         ],
-        "responses": {},
-        "operationId": "get-sus-su_id-lifepapers"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Lifepaper.yaml"
+                },
+                "examples": {
+                  "lifepaper": {
+                    "value": {
+                      "id": 1,
+                      "first-name": "foo",
+                      "last-name": "bar",
+                      "age": 0,
+                      "first-meeting-media": {
+                        "value": "phone-call"
+                      },
+                      "work": "architect",
+                      "school": "no school",
+                      "nationality": "no",
+                      "marital-status": "single",
+                      "plan-for-next-twelve-month": "nothing",
+                      "created-at": "2021-10-10",
+                      "updated-at": "2021-10-10"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "get-sus-su_id-lifepapers",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "su_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "su_id"
+                ]
+              },
+              "examples": {
+                "su-id": {
+                  "value": {
+                    "su_id": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "",
+        "operationId": "post-sus-su_id-lifepapers",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "su_id": {
+                    "type": "integer"
+                  },
+                  "lifepaper": {
+                    "$ref": "../models/Lifepaper.yaml"
+                  }
+                },
+                "required": [
+                  "su_id",
+                  "lifepaper"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lifepapers/{lifepaper_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "lifepaper_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update this lifepaper",
+        "operationId": "put-lifepapers-lifepaper_id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../models/Lifepaper.yaml"
+              },
+              "examples": {
+                "lifepaper": {
+                  "value": {
+                    "id": 1,
+                    "first-name": "foo",
+                    "last-name": "bar",
+                    "age": 0,
+                    "first-meeting-media": {
+                      "value": "phone-call"
+                    },
+                    "work": "no",
+                    "school": "no",
+                    "nationality": "no",
+                    "marital-status": "maried",
+                    "plan-for-next-twelve-month": "nothing",
+                    "created-at": "2021-10-10",
+                    "updated-at": "2021-10-10"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/lifepapers/{lifepaper_id}/mentors": {
@@ -1011,16 +1463,111 @@
         "tags": [
           "mentor"
         ],
-        "responses": {},
-        "operationId": "post-lifepapers-lifepaper_id-mentors"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "post-lifepapers-lifepaper_id-mentors",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lifepaper_id": {
+                    "type": "integer"
+                  },
+                  "mentor": {
+                    "$ref": "../models/Mentor.yaml"
+                  }
+                },
+                "required": [
+                  "lifepaper_id",
+                  "mentor"
+                ]
+              },
+              "examples": {
+                "mentor": {
+                  "value": {
+                    "lifepaper_id": 0,
+                    "mentor": {
+                      "id": 1,
+                      "name": "foo",
+                      "relation-with-su": "family",
+                      "has-influence-on-su": "true"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "get": {
         "summary": "Get the mentor of this lifepaper",
         "tags": [
           "mentor"
         ],
-        "responses": {},
-        "operationId": "get-lifepapers-lifepaper_id-mentors"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Mentor.yaml"
+                },
+                "examples": {
+                  "mentor": {
+                    "value": {
+                      "id": 1,
+                      "name": "foo",
+                      "relation-with-su": "friend",
+                      "has-influence-on-su": "true"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-lifepapers-lifepaper_id-mentors",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lifepaper_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "lifepaper_id"
+                ]
+              },
+              "examples": {
+                "lifepaper-id": {
+                  "value": {
+                    "lifepaper_id": 1
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/mentors/{mentor_id}": {
@@ -1039,16 +1586,91 @@
         "tags": [
           "mentor"
         ],
-        "responses": {},
-        "operationId": "delete-mentors-mentor_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "delete-mentors-mentor_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "mentor_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "mentor_id"
+                ]
+              },
+              "examples": {
+                "mentor-id": {
+                  "value": {
+                    "mentor_id": 1
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
         "summary": "Update the mentor of a lifepaper",
         "tags": [
           "mentor"
         ],
-        "responses": {},
-        "operationId": "put-mentors-mentor_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "put-mentors-mentor_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../models/Mentor.yaml"
+              },
+              "examples": {
+                "mentor": {
+                  "value": {
+                    "id": 1,
+                    "name": "foo",
+                    "relation-with-su": "friend",
+                    "has-influence-on-su": "true"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/lifepapers/{lifepaper_id}/religions": {
@@ -1067,16 +1689,127 @@
         "tags": [
           "religion"
         ],
-        "responses": {},
-        "operationId": "post-lifepapers-lifepaper_id-religions"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "post-lifepapers-lifepaper_id-religions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lifepaper_id": {
+                    "type": "integer"
+                  },
+                  "religion": {
+                    "$ref": "../models/Religion.yaml"
+                  }
+                },
+                "required": [
+                  "lifepaper_id",
+                  "religion"
+                ]
+              },
+              "examples": {
+                "religion": {
+                  "value": {
+                    "lifepaper_id": 1,
+                    "religion": {
+                      "id": 1,
+                      "has-faith": true,
+                      "has-faith-in": "God",
+                      "time-in-faith": 5,
+                      "go-to-gathering": true,
+                      "gathering-type": "church",
+                      "religion-perception": "God is with everyone",
+                      "religion": "christian"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "get": {
         "summary": "Get the religion of this lifepaper",
         "tags": [
           "religion"
         ],
-        "responses": {},
-        "operationId": "get-lifepapers-lifepaper_id-religions"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Religion.yaml"
+                },
+                "examples": {
+                  "religion": {
+                    "value": {
+                      "id": 1,
+                      "has-faith": true,
+                      "has-faith-in": "God",
+                      "time-in-faith": 5,
+                      "go-to-gathering": true,
+                      "gathering-type": "church",
+                      "religion-perception": "God is everywhere",
+                      "religion": "christian"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "get-lifepapers-lifepaper_id-religions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lifepaper_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "lifepaper_id"
+                ]
+              }
+            }
+          }
+        }
       }
     },
     "/religions/{religion_id}": {
@@ -1095,16 +1828,92 @@
         "tags": [
           "religion"
         ],
-        "responses": {},
-        "operationId": "delete-religions-religion_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "delete-religions-religion_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "religion_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "religion_id"
+                ]
+              }
+            }
+          }
+        }
       },
       "put": {
         "summary": "Update the religion of this lifepaper",
         "tags": [
           "religion"
         ],
-        "responses": {},
-        "operationId": "put-religions-religion_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "put-religions-religion_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../models/Religion.yaml"
+              },
+              "examples": {
+                "religion": {
+                  "value": {
+                    "id": 1,
+                    "has-faith": true,
+                    "has-faith-in": "God",
+                    "time-in-faith": 0,
+                    "go-to-gathering": true,
+                    "gathering-type": "church",
+                    "religion-perception": "God love everyone",
+                    "religion": "christian"
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        }
       }
     },
     "/lifepapers/{lifepaper_id}/extensions": {
@@ -1123,16 +1932,144 @@
         "tags": [
           "extension"
         ],
-        "responses": {},
-        "operationId": "post-lifepapers-lifepaper_id-extensions"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "post-lifepapers-lifepaper_id-extensions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lifepaper_id": {
+                    "type": "integer"
+                  },
+                  "extension": {
+                    "$ref": "../models/Extension.yaml"
+                  }
+                },
+                "required": [
+                  "lifepaper_id",
+                  "extension"
+                ]
+              },
+              "examples": {
+                "extension": {
+                  "value": {
+                    "lifepaper_id": 1,
+                    "extension": {
+                      "id": 1,
+                      "described-aspect": {
+                        "value": "mental"
+                      },
+                      "aspect-element": {
+                        "value": "mo-dislikes"
+                      },
+                      "description": "no description"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "get": {
         "summary": "Get all the extensions of this lifepaper",
         "tags": [
           "extension"
         ],
-        "responses": {},
-        "operationId": "get-lifepapers-lifepaper_id-extensions"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 3,
+                  "items": {
+                    "$ref": "../models/Extension.yaml"
+                  }
+                },
+                "examples": {
+                  "extensions": {
+                    "value": [
+                      {
+                        "id": 1,
+                        "described-aspect": {
+                          "value": "moral"
+                        },
+                        "aspect-element": {
+                          "value": "mo-dislikes"
+                        },
+                        "description": "string"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "get-lifepapers-lifepaper_id-extensions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lifepaper_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "lifepaper_id"
+                ]
+              },
+              "examples": {
+                "lifepaper-id": {
+                  "value": {
+                    "lifepaper_id": 1
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/extensions/{extension_id}": {
@@ -1151,16 +2088,101 @@
         "tags": [
           "extension"
         ],
-        "responses": {},
-        "operationId": "delete-extensions-extension_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "delete-extensions-extension_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "extension_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "extension_id"
+                ]
+              },
+              "examples": {
+                "extension": {
+                  "value": {
+                    "extension_id": 1
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
         "summary": "Update an extension of a lifepaper",
         "tags": [
           "extension"
         ],
-        "responses": {},
-        "operationId": "put-extensions-extension_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "put-extensions-extension_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../models/Extension.yaml"
+              },
+              "examples": {
+                "extension": {
+                  "value": {
+                    "id": 1,
+                    "described-aspect": {
+                      "value": "moral"
+                    },
+                    "aspect-element": {
+                      "value": "mo-dislikes"
+                    },
+                    "description": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/lifepapers/{lifepaper_id}/confidants": {
@@ -1179,16 +2201,109 @@
         "tags": [
           "confidant"
         ],
-        "responses": {},
-        "operationId": "get-lifepapers-lifepaper_id-confidants"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Confidant.yaml"
+                },
+                "examples": {
+                  "confidant": {
+                    "value": {
+                      "id": 1,
+                      "relation": {
+                        "value": "family"
+                      },
+                      "note": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-lifepapers-lifepaper_id-confidants",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lifepaper_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "lifepaper_id"
+                ]
+              }
+            }
+          }
+        }
       },
       "post": {
         "summary": "Create the confident of this lifepaper",
         "tags": [
           "confidant"
         ],
-        "responses": {},
-        "operationId": "post-lifepapers-lifepaper_id-confidants"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "post-lifepapers-lifepaper_id-confidants",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lifepaper_id": {
+                    "type": "integer"
+                  },
+                  "confidant": {
+                    "$ref": "../models/Confidant.yaml"
+                  }
+                },
+                "required": [
+                  "lifepaper_id",
+                  "confidant"
+                ]
+              },
+              "examples": {
+                "confidant": {
+                  "value": {
+                    "lifepaper_id": 0,
+                    "confidant": {
+                      "id": 1,
+                      "relation": {
+                        "value": "family"
+                      },
+                      "note": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/confidants/{confidant_id}": {
@@ -1205,14 +2320,89 @@
       "put": {
         "summary": "Update the confidant of a lifepaper",
         "tags": [],
-        "responses": {},
-        "operationId": "put-confidants-confidant_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "put-confidants-confidant_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../models/Confidant.yaml"
+              },
+              "examples": {
+                "confidant": {
+                  "value": {
+                    "id": 1,
+                    "relation": {
+                      "value": "family"
+                    },
+                    "note": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
         "summary": "Delete the confidant of a lifepaper",
         "tags": [],
-        "responses": {},
-        "operationId": "delete-confidants-confidant_id"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "delete-confidants-confidant_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "confidant_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "confidant_id"
+                ]
+              }
+            }
+          }
+        }
       }
     },
     "/admins/{admin_id}/sus": {
@@ -1231,24 +2421,167 @@
         "tags": [
           "admin"
         ],
-        "responses": {},
-        "operationId": "get-admins-admin_id-sus"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 3,
+                  "items": {
+                    "$ref": "../models/Su.yaml"
+                  }
+                },
+                "examples": {
+                  "su": {
+                    "value": [
+                      {
+                        "id": 1,
+                        "status": {
+                          "value": "new"
+                        },
+                        "created-at": "2021-10-10",
+                        "updated-at": "2021-10-10"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-admins-admin_id-sus",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "admin_id"
+                ]
+              }
+            }
+          }
+        }
       },
       "post": {
         "summary": "Assign and/or unassign a list of sus to this admin (using the ids of these sus)",
         "tags": [
           "admin"
         ],
-        "responses": {},
-        "operationId": "post-admins-admin_id-sus"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "post-admins-admin_id-sus",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  },
+                  "sus": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "admin_id",
+                  "sus"
+                ]
+              },
+              "examples": {
+                "sus": {
+                  "value": {
+                    "admin_id": 0,
+                    "sus": [
+                      0
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
         "summary": "Unassign all the sus assign to this admin from him",
         "tags": [
           "admin"
         ],
-        "responses": {},
-        "operationId": "delete-admins-admin_id-sus"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "delete-admins-admin_id-sus",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "admin_id"
+                ]
+              },
+              "examples": {
+                "admin-id": {
+                  "value": {
+                    "admin_id": 1
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/admins": {
@@ -1257,7 +2590,49 @@
         "tags": [
           "admin"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 3,
+                  "items": {
+                    "$ref": "../models/Admin.yaml"
+                  }
+                },
+                "examples": {
+                  "admins": {
+                    "value": [
+                      {
+                        "id": 1,
+                        "information": {
+                          "id": 1,
+                          "scj-id": 0,
+                          "first-name": "foo",
+                          "last-name": "bar",
+                          "email": "foo.bar@outlook.de",
+                          "telegramnummer": "0-000-000-00",
+                          "password": "pa$$word",
+                          "user-type": {
+                            "value": "admin"
+                          },
+                          "account-state": {
+                            "value": "activ"
+                          },
+                          "created-at": "2021-10-10",
+                          "updated-at": "2021-10-10"
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
         "operationId": "get-admins"
       },
       "post": {
@@ -1265,8 +2640,60 @@
         "tags": [
           "admin"
         ],
-        "responses": {},
-        "operationId": "post-admins"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "operationId": "post-admins",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../models/Admin.yaml"
+              },
+              "examples": {
+                "admin": {
+                  "value": {
+                    "id": 1,
+                    "information": {
+                      "id": 1,
+                      "scj-id": 0,
+                      "first-name": "foo",
+                      "last-name": "bar",
+                      "email": "foo.bar@outlook.de",
+                      "telegramnummer": "string",
+                      "password": "pa$$word",
+                      "user-type": {
+                        "value": "admin"
+                      },
+                      "account-state": {
+                        "value": "activ"
+                      },
+                      "created-at": "2021-10-10",
+                      "updated-at": "2021-10-10"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/admins/{admin_id}/jyjns": {
@@ -1285,8 +2712,107 @@
         "tags": [
           "admin"
         ],
-        "responses": {},
-        "operationId": "get-admins-admin_id-jyjns"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 3,
+                  "items": {
+                    "$ref": "../models/Jyjn.yaml"
+                  }
+                },
+                "examples": {
+                  "jyjns": {
+                    "value": [
+                      {
+                        "id": 1,
+                        "information": {
+                          "id": 1,
+                          "scj-id": 3,
+                          "first-name": "foo",
+                          "last-name": "bar",
+                          "email": "foo.bar@outlook.de",
+                          "telegramnummer": "string",
+                          "password": "pa$$word",
+                          "user-type": {
+                            "value": "admin"
+                          },
+                          "account-state": {
+                            "value": "activ"
+                          },
+                          "created-at": "2021-10-10",
+                          "updated-at": "2021-10-10"
+                        },
+                        "jy-id": 1
+                      },
+                      {
+                        "id": 2,
+                        "information": {
+                          "id": 2,
+                          "scj-id": 4,
+                          "first-name": "foo",
+                          "last-name": "bar",
+                          "email": "foo.bar@outlook.de",
+                          "telegramnummer": "string",
+                          "password": "pa$$word",
+                          "user-type": {
+                            "value": "admin"
+                          },
+                          "account-state": {
+                            "value": "activ"
+                          },
+                          "created-at": "2021-10-10",
+                          "updated-at": "2021-10-10"
+                        },
+                        "jy-id": 1
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "get-admins-admin_id-jyjns",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "admin_id"
+                ]
+              }
+            }
+          }
+        }
       },
       "delete": {
         "summary": "Unassign all the jyjns assign to this admin from it",
@@ -1294,23 +2820,161 @@
           "admin"
         ],
         "responses": {},
-        "operationId": "delete-admins-admin_id-jyjns"
+        "operationId": "delete-admins-admin_id-jyjns",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "admin_id"
+                ]
+              }
+            }
+          }
+        }
       },
       "post": {
         "summary": "Assign a list of jyjns to this admin",
         "tags": [
           "admin"
         ],
-        "responses": {},
-        "operationId": "post-admins-admin_id-jyjns"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "post-admins-admin_id-jyjns",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  },
+                  "jyjns": {
+                    "type": "array",
+                    "minItems": 4,
+                    "maxItems": 5,
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "admin_id",
+                  "jyjns"
+                ]
+              },
+              "examples": {
+                "jyjns": {
+                  "value": {
+                    "admin_id": 1,
+                    "jyjns": [
+                      1,
+                      2,
+                      3,
+                      4
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
         "summary": "Unassign a list of jyjn assigned to this admin from it",
         "tags": [
           "admin"
         ],
-        "responses": {},
-        "operationId": "put-admins-admin_id-jyjns"
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "put-admins-admin_id-jyjns",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  },
+                  "jyjns": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 4,
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "admin_id",
+                  "jyjns"
+                ]
+              },
+              "examples": {
+                "jyjns": {
+                  "value": {
+                    "admin_id": 5,
+                    "jyjns": [
+                      1,
+                      3,
+                      4
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/admins/{admin_id}/authorities": {
@@ -1329,32 +2993,242 @@
         "tags": [
           "admin"
         ],
-        "responses": {},
-        "operationId": "get-admins-admin_id-authorities"
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Authority.yaml"
+                },
+                "examples": {
+                  "authorities": {
+                    "value": {
+                      "id": 1,
+                      "type_assign_to": "admin",
+                      "authorized_to": {
+                        "delete-su": true,
+                        "delete-admin": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "get-admins-admin_id-authorities",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "admin_id"
+                ]
+              }
+            }
+          }
+        }
       },
       "post": {
         "summary": "Give a list of authorities to this admin",
         "tags": [
           "admin"
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "operationId": "post-admins-admin_id-authorities",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin_id": {
+                    "type": "integer"
+                  },
+                  "authorities": {
+                    "$ref": "../models/Authority.yaml"
+                  }
+                },
+                "required": [
+                  "admin_id",
+                  "authorities"
+                ]
+              },
+              "examples": {
+                "authorities": {
+                  "value": {
+                    "admin_id": 0,
+                    "authorities": {
+                      "id": 1,
+                      "type_assign_to": "admin",
+                      "authorized_to": {
+                        "delete-su": true,
+                        "delete-admin": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/authorities/{authority_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "authority_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
         "responses": {},
-        "operationId": "post-admins-admin_id-authorities"
+        "operationId": "get-authorities-authority_id"
       },
       "put": {
-        "summary": "Remove a list of authorities from this admin",
-        "tags": [
-          "admin"
-        ],
-        "responses": {},
-        "operationId": "put-admins-admin_id-authorities"
+        "summary": "",
+        "operationId": "put-authorities-authority_id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../models/Authority.yaml"
+              },
+              "examples": {
+                "authority": {
+                  "value": {
+                    "id": 1,
+                    "type_assign_to": "admin",
+                    "authorized_to": {
+                      "delete-su": true,
+                      "delete-admin": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
-        "summary": "Remove all the authorities of this admin",
-        "tags": [
-          "admin"
-        ],
-        "responses": {},
-        "operationId": "delete-admins-admin_id-authorities"
+        "summary": "",
+        "operationId": "delete-authorities-authority_id",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "authority_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "authority_id"
+                ]
+              }
+            }
+          }
+        }
       }
     }
   },

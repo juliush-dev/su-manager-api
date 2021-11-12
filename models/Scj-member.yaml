@@ -25,8 +25,6 @@ properties:
   password:
     type: string
     format: password
-  role:
-    $ref: ./Role.yaml
   user-type:
     $ref: ./User-type.yaml
   account-state:
@@ -46,7 +44,6 @@ required:
   - email
   - telegramnummer
   - password
-  - role
   - user-type
   - account-state
   - created-at
