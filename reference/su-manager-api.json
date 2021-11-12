@@ -348,7 +348,7 @@
                   "example-1": {
                     "value": {
                       "id": 0,
-                      "deleted": "jyjn",
+                      "deleted": "admin",
                       "message": "Delete completed",
                       "detailed_information": ""
                     }
@@ -2330,6 +2330,8 @@
               "application/json": {
                 "schema": {
                   "type": "array",
+                  "minItems": 1,
+                  "maxItems": 3,
                   "items": {
                     "$ref": "../models/Report.yaml"
                   }
