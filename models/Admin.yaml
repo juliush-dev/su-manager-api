@@ -3,6 +3,22 @@ type: object
 x-tags:
   - user
 description: Represents an administrator for users.
+examples:
+  - id: 1
+    information:
+      id: 1
+      scj-id: '0000000000000'
+      first-name: string
+      last-name: string
+      email: foo.bar@outlook.de
+      telegramnummer: string
+      password: pa$$word
+      user-type:
+        value: admin
+      account-state:
+        value: activ
+      created-at: '2021-10-10'
+      updated-at: '2021-10-10'
 properties:
   id:
     type:
@@ -13,19 +29,3 @@ properties:
     $ref: ./Scj-member.yaml
 required:
   - information
-examples:
-  - id: 1
-    information:
-      id: 1
-      scj-id: 0
-      first-name: foo
-      last-name: bar
-      email: foo.bar@outlook.de
-      telegramnummer: string
-      password: pa$$word
-      user-type:
-        value: admin
-      account-state:
-        value: activ
-      created-at: '2021-10-10'
-      updated-at: '2021-10-10'
