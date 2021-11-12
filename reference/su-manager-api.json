@@ -334,7 +334,7 @@
         }
       },
       "delete": {
-        "summary": "",
+        "summary": "Delete this admins profile from the system",
         "operationId": "delete-admins-admin_id",
         "responses": {
           "200": {
@@ -343,6 +343,16 @@
               "application/json": {
                 "schema": {
                   "$ref": "../models/Delete.yaml"
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": 0,
+                      "deleted": "jyjn",
+                      "message": "Delete completed",
+                      "detailed_information": ""
+                    }
+                  }
                 }
               }
             }
