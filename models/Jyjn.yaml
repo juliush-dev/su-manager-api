@@ -16,24 +16,6 @@ properties:
     type: integer
     example: 1
     default: 0
-  assigned-sus:
-    type:
-      - array
-      - 'null'
-    uniqueItems: true
-    minItems: 1
-    maxItems: 2
-    items:
-      $ref: ./Su.yaml
-  assigned-admins:
-    type:
-      - array
-      - 'null'
-    uniqueItems: true
-    minItems: 1
-    maxItems: 2
-    items:
-      $ref: ./Admin.yaml
 required:
   - information
   - jy-id

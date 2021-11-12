@@ -9,23 +9,8 @@ properties:
       - integer
       - 'null'
     example: 1
-  lifepaper:
-    $ref: ./Lifepaper.yaml
   status:
     $ref: ./Su-status.yaml
-  assigned-jyjn:
-    $ref: ./Jyjn.yaml
-  assigned-reports:
-    type:
-      - array
-      - 'null'
-    uniqueItems: true
-    minItems: 1
-    maxItems: 2
-    items:
-      $ref: ./Report.yaml
-  assigned-saint:
-    $ref: ./Saint.yaml
   created-at:
     type: string
     format: date
@@ -35,10 +20,6 @@ properties:
     format: date
     example: '2021-10-10'
 required:
-  - lifepaper
   - status
-  - assigned-jyjn
-  - assigned-reports
-  - assigned-saint
   - created-at
   - updated-at

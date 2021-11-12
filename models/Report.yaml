@@ -21,10 +21,7 @@ properties:
       - postponed
       - dropped
     example: contactability
-  su:
-    $ref: ./Su.yaml
 required:
   - reason
   - reported-at
   - report-type
-  - su

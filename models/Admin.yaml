@@ -11,14 +11,5 @@ properties:
     example: 1
   information:
     $ref: ./Scj-member.yaml
-  assigned-jyjns:
-    type:
-      - array
-      - 'null'
-    uniqueItems: true
-    minItems: 1
-    maxItems: 2
-    items:
-      $ref: ./Jyjn.yaml
 required:
   - information

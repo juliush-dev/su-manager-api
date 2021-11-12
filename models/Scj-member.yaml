@@ -16,8 +16,6 @@ properties:
     type: string
   last-name:
     type: string
-  address:
-    $ref: ./Address.yaml
   email:
     type: string
     format: email
@@ -45,7 +43,6 @@ required:
   - scj-id
   - first-name
   - last-name
-  - address
   - email
   - telegramnummer
   - password

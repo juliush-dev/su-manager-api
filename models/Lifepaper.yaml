@@ -35,8 +35,6 @@ properties:
     minLength: 1
   age:
     type: number
-  address:
-    $ref: ./Address.yaml
   first-meeting-media:
     $ref: ./Contactmedia.yaml
   work:
@@ -64,18 +62,6 @@ properties:
       - string
       - 'null'
     minLength: 1
-  mentor:
-    $ref: ./Mentor.yaml
-  extension:
-    type:
-      - array
-      - 'null'
-    items:
-      $ref: ./Extension.yaml
-  confidant:
-    $ref: ./Confidant.yaml
-  religion:
-    $ref: ./Religion.yaml
   created-at:
     type: string
     minLength: 1
@@ -90,7 +76,6 @@ required:
   - first-name
   - last-name
   - age
-  - address
   - first-meeting-media
   - work
   - school
