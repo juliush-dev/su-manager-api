@@ -1672,25 +1672,30 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "minItems": 1,
-                  "maxItems": 3,
-                  "items": {
-                    "$ref": "../models/Su.yaml"
+                  "type": "object",
+                  "properties": {
+                    "sus": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "../models/Su.yaml"
+                      }
+                    }
                   }
                 },
                 "examples": {
                   "example-1": {
-                    "value": [
-                      {
-                        "id": 1,
-                        "status": {
-                          "value": "new"
-                        },
-                        "created-at": "2021-10-10",
-                        "updated-at": "2021-10-10"
-                      }
-                    ]
+                    "value": {
+                      "sus": [
+                        {
+                          "id": 1,
+                          "status": {
+                            "value": "new"
+                          },
+                          "created-at": "2021-10-10",
+                          "updated-at": "2021-10-10"
+                        }
+                      ]
+                    }
                   }
                 }
               }
