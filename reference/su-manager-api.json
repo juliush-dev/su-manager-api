@@ -791,7 +791,16 @@
                   "sus"
                 ]
               },
-              "examples": {}
+              "examples": {
+                "sus": {
+                  "value": {
+                    "jyjn_id": 1,
+                    "sus": [
+                      1
+                    ]
+                  }
+                }
+              }
             }
           }
         }
@@ -830,6 +839,13 @@
                 "required": [
                   "jyjn_id"
                 ]
+              },
+              "examples": {
+                "jyjn-id": {
+                  "value": {
+                    "jyjn_id": 1
+                  }
+                }
               }
             }
           }
@@ -898,6 +914,13 @@
                 "required": [
                   "jyjn_id"
                 ]
+              },
+              "examples": {
+                "jyjn-id": {
+                  "value": {
+                    "jyjn_id": 1
+                  }
+                }
               }
             }
           }
@@ -934,6 +957,8 @@
                   },
                   "sus": {
                     "type": "array",
+                    "minItems": 3,
+                    "maxItems": 4,
                     "items": {
                       "type": "integer"
                     }
@@ -943,9 +968,21 @@
                   "jyjn_id",
                   "sus"
                 ]
+              },
+              "examples": {
+                "sus": {
+                  "value": {
+                    "jyjn_id": 1,
+                    "sus": [
+                      1,
+                      2
+                    ]
+                  }
+                }
               }
             }
-          }
+          },
+          "description": ""
         },
         "parameters": []
       }
