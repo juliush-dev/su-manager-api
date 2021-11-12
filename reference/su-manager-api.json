@@ -1672,30 +1672,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "sus": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "../models/Su.yaml"
-                      }
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "../models/Su.yaml"
                   }
                 },
                 "examples": {
                   "example-1": {
-                    "value": {
-                      "sus": [
-                        {
-                          "id": 1,
-                          "status": {
-                            "value": "new"
-                          },
-                          "created-at": "2021-10-10",
-                          "updated-at": "2021-10-10"
-                        }
-                      ]
-                    }
+                    "value": [
+                      {
+                        "id": 1,
+                        "status": {
+                          "value": "new"
+                        },
+                        "created-at": "2021-10-10",
+                        "updated-at": "2021-10-10"
+                      }
+                    ]
                   }
                 }
               }
