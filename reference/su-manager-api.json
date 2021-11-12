@@ -17,62 +17,696 @@
     }
   ],
   "paths": {
-    "/jyjns": {
-      "get": {
-        "summary": "Get all jyjns.",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": [
-                    "array",
-                    "null"
-                  ],
-                  "uniqueItems": true,
-                  "minItems": 1,
-                  "maxItems": 2,
-                  "items": {
-                    "$ref": "../models/Jyjn.yaml"
-                  }
-                },
-                "examples": {}
-              },
-              "application/xml": {
-                "schema": {
-                  "type": "object",
-                  "properties": {}
-                }
-              }
-            },
-            "headers": {}
+    "/admins/{admin_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
           },
-          "": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "allOf": [
-                    {
-                      "$ref": "../models/Jyjn.yaml"
-                    }
-                  ]
-                },
-                "examples": {
-                  "example-1": {
-                    "value": {}
+          "name": "admin_id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "admin_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update the profile of this admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "operationId": "put-admins-admin_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../models/Scj-member.yaml"
+              },
+              "examples": {
+                "raoul-fosso": {
+                  "value": {
+                    "id": 1,
+                    "scj-id": 0,
+                    "first-name": "raoul",
+                    "last-name": "fosso",
+                    "address": {
+                      "id": 1,
+                      "country": "Germany",
+                      "street": "Markstr",
+                      "street-number": "35",
+                      "postcode": "00000",
+                      "city": "Dortmund"
+                    },
+                    "email": "foo.bar@outlook.de",
+                    "telegramnummer": "string",
+                    "password": "pa$$word",
+                    "role": {
+                      "value": "can-validate-account"
+                    },
+                    "user-type": {
+                      "value": "admin"
+                    },
+                    "account-state": {
+                      "value": "new"
+                    },
+                    "created-at": "2021-10-10",
+                    "updated-at": "2021-10-10"
                   }
                 }
               }
             }
-          }
-        },
-        "operationId": "get-jyjns",
-        "description": "Description"
+          },
+          "description": ""
+        }
       },
-      "parameters": []
+      "delete": {
+        "summary": "Delete the profile of this admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "delete-admins-admin_id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jyjns": {
+      "post": {
+        "summary": "Create a jyjn",
+        "tags": [
+          "jyjn"
+        ],
+        "responses": {},
+        "operationId": "post-jyjns"
+      },
+      "get": {
+        "summary": "Get all jyjns",
+        "tags": [
+          "jyjn"
+        ],
+        "responses": {},
+        "operationId": "get-jyjns"
+      }
+    },
+    "/jyjns/{jyjn_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "jyjn_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get the profile information of this jyjn",
+        "tags": [
+          "jyjn"
+        ],
+        "responses": {},
+        "operationId": "get-jyjns-jyjn_id"
+      },
+      "delete": {
+        "summary": "Delete the profile of this jyjn",
+        "tags": [
+          "jyjn"
+        ],
+        "responses": {},
+        "operationId": "delete-jyjns-jyjn_id"
+      },
+      "put": {
+        "summary": "Update the profile information of this jyjn",
+        "tags": [
+          "jyjn"
+        ],
+        "responses": {},
+        "operationId": "put-jyjns-jyjn_id"
+      }
+    },
+    "/jyjns/{jyjn_id}/authorities": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "jyjn_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get the authorities assigned to this jyjn",
+        "tags": [
+          "jyjn"
+        ],
+        "responses": {},
+        "operationId": "get-jyjns-jyjn_id-assignments-authorities"
+      },
+      "post": {
+        "summary": "Assign authorities to this jyjn",
+        "tags": [
+          "jyjn"
+        ],
+        "responses": {},
+        "operationId": "post-jyjns-jyjn_id-assignments-authorities"
+      },
+      "delete": {
+        "summary": "Delete all authorities of this jyjn",
+        "tags": [
+          "jyjn"
+        ],
+        "responses": {},
+        "operationId": "delete-jyjns-jyjn_id-assignments-authorities"
+      },
+      "put": {
+        "summary": "Remove some authorities of this jyjn",
+        "tags": [
+          "jyjn"
+        ],
+        "responses": {},
+        "operationId": "put-jyjns-jyjn_id-assignments-authorities"
+      }
+    },
+    "/jyjns/{jyjn_id}/sus": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "jyjn_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "Assign or unassign a list of sus to this jyjn",
+        "tags": [],
+        "responses": {},
+        "operationId": "post-jyjns-jyjn_id-sus"
+      },
+      "delete": {
+        "summary": "Unassign all sus assign to this jyjn",
+        "tags": [],
+        "responses": {},
+        "operationId": "delete-jyjns-jyjn_id-sus"
+      },
+      "get": {
+        "summary": "Get all the sus assign to this jyjn",
+        "tags": [],
+        "responses": {},
+        "operationId": "get-jyjns-jyjn_id-sus"
+      }
+    },
+    "/sus/{su_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "su_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "Delete this su from the system",
+        "tags": [
+          "su",
+          ""
+        ],
+        "responses": {},
+        "operationId": "delete-sus-su_id"
+      },
+      "put": {
+        "summary": "Update profile information of this su",
+        "tags": [
+          "su",
+          ""
+        ],
+        "responses": {},
+        "operationId": "put-sus-su_id"
+      }
+    },
+    "/sus/{su_id}/reports": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "su_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get all the reports of this su",
+        "tags": [
+          "su"
+        ],
+        "responses": {},
+        "operationId": "get-sus-su_id-reports"
+      }
+    },
+    "/reports/{report_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "report_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update this report",
+        "tags": [
+          "",
+          "report"
+        ],
+        "responses": {},
+        "operationId": "put-reports-report_id"
+      },
+      "delete": {
+        "summary": "Delete this report",
+        "tags": [
+          "",
+          "report"
+        ],
+        "responses": {},
+        "operationId": "delete-reports-report_id"
+      }
+    },
+    "/sus/{su_id}/lifepapers": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "su_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get the lifepaper of this su",
+        "tags": [
+          "lifepaper"
+        ],
+        "responses": {},
+        "operationId": "get-sus-su_id-lifepapers"
+      }
+    },
+    "/lifepapers/{lifepaper_id}/mentors": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "lifepaper_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "Create a mentor on this lifepaper",
+        "tags": [
+          "mentor"
+        ],
+        "responses": {},
+        "operationId": "post-lifepapers-lifepaper_id-mentors"
+      },
+      "get": {
+        "summary": "Get the mentor of this lifepaper",
+        "tags": [
+          "mentor"
+        ],
+        "responses": {},
+        "operationId": "get-lifepapers-lifepaper_id-mentors"
+      }
+    },
+    "/mentors/{mentor_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "mentor_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "Delete the mentor of a lifepaper",
+        "tags": [
+          "mentor"
+        ],
+        "responses": {},
+        "operationId": "delete-mentors-mentor_id"
+      },
+      "put": {
+        "summary": "Update the mentor of a lifepaper",
+        "tags": [
+          "mentor"
+        ],
+        "responses": {},
+        "operationId": "put-mentors-mentor_id"
+      }
+    },
+    "/lifepapers/{lifepaper_id}/religions": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "lifepaper_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "Create the religion of this lifepaper",
+        "tags": [
+          "religion"
+        ],
+        "responses": {},
+        "operationId": "post-lifepapers-lifepaper_id-religions"
+      },
+      "get": {
+        "summary": "Get the religion of this lifepaper",
+        "tags": [
+          "religion"
+        ],
+        "responses": {},
+        "operationId": "get-lifepapers-lifepaper_id-religions"
+      }
+    },
+    "/religions/{religion_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "religion_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "Delete the religion of this lifepaper",
+        "tags": [
+          "religion"
+        ],
+        "responses": {},
+        "operationId": "delete-religions-religion_id"
+      },
+      "put": {
+        "summary": "Update the religion of this lifepaper",
+        "tags": [
+          "religion"
+        ],
+        "responses": {},
+        "operationId": "put-religions-religion_id"
+      }
+    },
+    "/lifepapers/{lifepaper_id}/extensions": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "lifepaper_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "Create a list of extensions on this lifepaper",
+        "tags": [
+          "extension"
+        ],
+        "responses": {},
+        "operationId": "post-lifepapers-lifepaper_id-extensions"
+      },
+      "get": {
+        "summary": "Get all the extensions of this lifepaper",
+        "tags": [
+          "extension"
+        ],
+        "responses": {},
+        "operationId": "get-lifepapers-lifepaper_id-extensions"
+      }
+    },
+    "/extensions/{extension_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "extension_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "delete": {
+        "summary": "Delete an extension of a lifepaper",
+        "tags": [
+          "extension"
+        ],
+        "responses": {},
+        "operationId": "delete-extensions-extension_id"
+      },
+      "put": {
+        "summary": "Update an extension of a lifepaper",
+        "tags": [
+          "extension"
+        ],
+        "responses": {},
+        "operationId": "put-extensions-extension_id"
+      }
+    },
+    "/lifepapers/{lifepaper_id}/confidants": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "lifepaper_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get the confidant of this lifepaper",
+        "tags": [
+          "confidant"
+        ],
+        "responses": {},
+        "operationId": "get-lifepapers-lifepaper_id-confidants"
+      },
+      "post": {
+        "summary": "Create the confident of this lifepaper",
+        "tags": [
+          "confidant"
+        ],
+        "responses": {},
+        "operationId": "post-lifepapers-lifepaper_id-confidants"
+      }
+    },
+    "/confidants/{confidant_id}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "confidant_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update the confidant of a lifepaper",
+        "tags": [],
+        "responses": {},
+        "operationId": "put-confidants-confidant_id"
+      },
+      "delete": {
+        "summary": "Delete the confidant of a lifepaper",
+        "tags": [],
+        "responses": {},
+        "operationId": "delete-confidants-confidant_id"
+      }
+    },
+    "/admins/{admin_id}/sus": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "admin_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get all the sus this admin is assign to",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "get-admins-admin_id-sus"
+      },
+      "post": {
+        "summary": "Assign and/or unassign a list of sus to this admin (using the ids of these sus)",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "post-admins-admin_id-sus"
+      },
+      "delete": {
+        "summary": "Unassign all the sus assign to this admin from him",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "delete-admins-admin_id-sus"
+      }
+    },
+    "/admins": {
+      "get": {
+        "summary": "Get all admins in the system",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "get-admins"
+      },
+      "post": {
+        "summary": "Create an admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "post-admins"
+      }
+    },
+    "/admins/{admin_id}/jyjns": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "admin_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get all the jyjns assigned to this admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "get-admins-admin_id-jyjns"
+      },
+      "delete": {
+        "summary": "Unassign all the jyjns assign to this admin from it",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "delete-admins-admin_id-jyjns"
+      },
+      "post": {
+        "summary": "Assign a list of jyjns to this admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "post-admins-admin_id-jyjns"
+      },
+      "put": {
+        "summary": "Unassign a list of jyjn assigned to this admin from it",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "put-admins-admin_id-jyjns"
+      }
+    },
+    "/admins/{admin_id}/authorities": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "admin_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get the list of authorities of this admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "get-admins-admin_id-authorities"
+      },
+      "post": {
+        "summary": "Give a list of authorities to this admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "post-admins-admin_id-authorities"
+      },
+      "put": {
+        "summary": "Remove a list of authorities from this admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "put-admins-admin_id-authorities"
+      },
+      "delete": {
+        "summary": "Remove all the authorities of this admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {},
+        "operationId": "delete-admins-admin_id-authorities"
+      }
     }
   },
   "components": {
