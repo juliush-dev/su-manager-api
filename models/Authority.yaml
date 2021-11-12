@@ -1,0 +1,20 @@
+title: Authority
+type: object
+x-tags:
+  - scj-member
+properties:
+  id:
+    type: string
+  type_assign_to:
+    type: string
+    enum:
+      - admin
+      - jyjn
+  authorized_to:
+    type: object
+examples:
+  - id: string
+    type_assign_to: admin
+    authorized_to:
+      delete-su: true
+      delete-admin: false

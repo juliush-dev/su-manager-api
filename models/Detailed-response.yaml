@@ -1,0 +1,10 @@
+description: ''
+type: object
+properties:
+  id:
+    type: number
+required:
+  - id
+x-examples:
+  example-1:
+    id: 1
