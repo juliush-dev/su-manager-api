@@ -12,7 +12,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000",
+      "url": "https://stoplight.io/mocks/jhdev/su-manager-api/27455283",
       "description": "su-manager-server"
     }
   ],
