@@ -37,7 +37,7 @@
                   }
                 },
                 "examples": {
-                  "example-1": {
+                  "example": {
                     "value": [
                       {
                         "id": 1,
@@ -63,6 +63,101 @@
                   }
                 }
               }
+            },
+            "headers": {}
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                },
+                "examples": {
+                  "400": {
+                    "$ref": "#/components/examples/error_400_bad_request"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                },
+                "examples": {
+                  "401": {
+                    "$ref": "#/components/examples/error_401_unauthorize"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                },
+                "examples": {
+                  "403": {
+                    "$ref": "#/components/examples/error_403_forbidden"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                },
+                "examples": {
+                  "404": {
+                    "$ref": "#/components/examples/error_404_not_found"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Error.yaml"
+                },
+                "examples": {
+                  "500": {
+                    "$ref": "#/components/examples/error_500_internal_server_error"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-admins"
+      },
+      "post": {
+        "summary": "Create an admin",
+        "tags": [
+          "admin"
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../models/Creation.yaml"
+                }
+              }
             }
           },
           "400": {
@@ -71,6 +166,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "../models/Error.yaml"
+                },
+                "examples": {
+                  "400": {
+                    "$ref": "#/components/examples/error_400_bad_request"
+                  }
                 }
               }
             }
@@ -106,73 +206,7 @@
             }
           },
           "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "../models/Error.yaml"
-                }
-              }
-            }
-          }
-        },
-        "operationId": "get-admins"
-      },
-      "post": {
-        "summary": "Create an admin",
-        "tags": [
-          "admin"
-        ],
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "../models/Creation.yaml"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "../models/Error.yaml"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "../models/Error.yaml"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "../models/Error.yaml"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "../models/Error.yaml"
-                }
-              }
-            }
+            "description": "Internal Server Error"
           }
         },
         "operationId": "post-admins",
@@ -214,12 +248,7 @@
     "/admins/{admin_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "admin_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/admin_id"
         }
       ],
       "put": {
@@ -427,7 +456,7 @@
         }
       },
       "get": {
-        "summary": "",
+        "summary": "Get this admin.",
         "operationId": "get-admins-admin_id",
         "responses": {
           "200": {
@@ -543,12 +572,7 @@
     "/admins/{admin_id}/authorities": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "admin_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/admin_id"
         }
       ],
       "get": {
@@ -758,12 +782,7 @@
     "/admins/{admin_id}/jyjns": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "admin_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/admin_id"
         }
       ],
       "get": {
@@ -1208,12 +1227,7 @@
     "/jyjns/{jyjn_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "jyjn_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/jyjn_id"
         }
       ],
       "get": {
@@ -1422,12 +1436,7 @@
     "/jyjns/{jyjn_id}/authorities": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "jyjn_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/jyjn_id"
         }
       ],
       "get": {
@@ -1545,12 +1554,7 @@
     "/jyjns/{jyjn_id}/sus": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "jyjn_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/jyjn_id"
         }
       ],
       "post": {
@@ -1804,12 +1808,7 @@
     "/sus/{su_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "su_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/su_id"
         }
       ],
       "delete": {
@@ -1911,12 +1910,7 @@
     "/sus/{su_id}/saints": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "su_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/su_id"
         }
       ],
       "delete": {
@@ -2110,12 +2104,7 @@
     "/saints/{saint_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "saint_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/saint_id"
         }
       ],
       "delete": {
@@ -2310,12 +2299,7 @@
     "/sus/{su_id}/reports": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "su_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/su_id"
         }
       ],
       "get": {
@@ -2420,12 +2404,7 @@
     "/reports/{report_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "report_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/report_id"
         }
       ],
       "put": {
@@ -2531,12 +2510,7 @@
     "/sus/{su_id}/lifepapers": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "su_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/su_id"
         }
       ],
       "get": {
@@ -2673,12 +2647,7 @@
     "/lifepapers/{lifepaper_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "lifepaper_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/lifepaper_id"
         }
       ],
       "put": {
@@ -2793,12 +2762,7 @@
     "/lifepapers/{lifepaper_id}/mentors": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "lifepaper_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/lifepaper_id"
         }
       ],
       "post": {
@@ -2945,12 +2909,7 @@
     "/mentors/{mentor_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "mentor_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/mentor_id"
         }
       ],
       "delete": {
@@ -3070,12 +3029,7 @@
     "/lifepapers/{lifepaper_id}/religions": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "lifepaper_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/lifepaper_id"
         }
       ],
       "post": {
@@ -3219,12 +3173,7 @@
     "/religions/{religion_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "religion_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/religion_id"
         }
       ],
       "delete": {
@@ -3340,12 +3289,7 @@
     "/lifepapers/{lifepaper_id}/extensions": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "lifepaper_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/lifepaper_id"
         }
       ],
       "post": {
@@ -3503,12 +3447,7 @@
     "/extensions/{extension_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "extension_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/extension_id"
         }
       ],
       "delete": {
@@ -3630,12 +3569,7 @@
     "/lifepapers/{lifepaper_id}/confidants": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "lifepaper_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/lifepaper_id"
         }
       ],
       "get": {
@@ -3772,12 +3706,7 @@
     "/confidants/{confidant_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "confidant_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/confidant_id"
         }
       ],
       "put": {
@@ -3892,12 +3821,7 @@
     "/admins/{admin_id}/sus": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "admin_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/admin_id"
         }
       ],
       "get": {
@@ -4100,12 +4024,7 @@
     "/authorities/{authority_id}": {
       "parameters": [
         {
-          "schema": {
-            "type": "integer"
-          },
-          "name": "authority_id",
-          "in": "path",
-          "required": true
+          "$ref": "#/components/parameters/authority_id"
         }
       ],
       "put": {
@@ -4211,6 +4130,164 @@
     }
   },
   "components": {
-    "schemas": {}
+    "schemas": {},
+    "responses": {},
+    "parameters": {
+      "admin_id": {
+        "name": "admin_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "example": 1
+        }
+      },
+      "jyjn_id": {
+        "name": "jyjn_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "authority_id": {
+        "name": "authority_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "confidant_id": {
+        "name": "confidant_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "lifepaper_id": {
+        "name": "lifepaper_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "extension_id": {
+        "name": "extension_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "religion_id": {
+        "name": "religion_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "mentor_id": {
+        "name": "mentor_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "su_id": {
+        "name": "su_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "saint_id": {
+        "name": "saint_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "report_id": {
+        "name": "report_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer"
+        }
+      }
+    },
+    "examples": {
+      "created": {
+        "value": {
+          "id": 1,
+          "created": "entity",
+          "message": "Creation completed",
+          "detailed_information": ""
+        }
+      },
+      "deleted": {
+        "value": {
+          "id": 1,
+          "deleted": "entity",
+          "message": "Delete completed",
+          "detailed_information": ""
+        }
+      },
+      "updated": {
+        "value": {
+          "id": 0,
+          "updated": "entity",
+          "message": "Update completed",
+          "detailed_information": ""
+        }
+      },
+      "error_400_bad_request": {
+        "value": {
+          "status": 400,
+          "type": "Bad request",
+          "message": "Malformed request syntax.",
+          "detailed_information": "Please check our API documentation and try again."
+        }
+      },
+      "error_401_unauthorize": {
+        "value": {
+          "status": 401,
+          "type": "Unauthorized",
+          "message": "You are not authorized to access the requested resource.",
+          "detailed_information": "Please login in and try again."
+        }
+      },
+      "error_403_forbidden": {
+        "value": {
+          "status": 403,
+          "type": "Forbidden",
+          "message": "You are not authorized to access the requested resource",
+          "detailed_information": "Your account is not granted this privilege"
+        }
+      },
+      "error_404_not_found": {
+        "value": {
+          "status": 404,
+          "type": "Not found",
+          "message": "The requested resource doesn't exist.",
+          "detailed_information": "Please check our API documentation and try again."
+        }
+      },
+      "error_500_internal_server_error": {
+        "value": {
+          "status": 500,
+          "type": "Internal Server Error",
+          "message": "The request could not be processed by our server.",
+          "detailed_information": "The contact our IT-Support service to repport this issue."
+        }
+      }
+    }
   }
 }

@@ -38,3 +38,7 @@ examples:
     type: Internal server error
     message: An error occured in the server during the operation
     detailed_information: Please contact our IT-support service
+  - status: 402
+    type: Forbidden
+    message: You are not authorized to access the requested resource
+    detailed_information: ''
